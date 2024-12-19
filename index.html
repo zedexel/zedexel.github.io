@@ -1,70 +1,270 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Work+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
     <title>Zedexel</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<link rel="icon" href="assets/favicon_black.ico" type="image/x-icon">
-<body>
-    <header class="header">
-        <div class="container">
-            <h1 class="logo">Zedexel</h1>
-            <nav class="nav">
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
 
-    <section class="hero">
-        <div class="container">
-            <h1>Welcome to Zedexel</h1>
-            <p>We provide modern business solutions tailored to your needs.</p>
-            <a href="#services" class="btn">Explore Services</a>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>At Zedexel, we strive to deliver exceptional business solutions to empower companies in a fast-changing world.</p>
-        </div>
-    </section>
-
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="service-cards">
-                <div class="card">
-                    <h3>Consulting</h3>
-                    <p>Expert advice to optimize your business operations.</p>
-                </div>
-                <div class="card">
-                    <h3>Technology</h3>
-                    <p>Innovative tech solutions for a competitive edge.</p>
-                </div>
-                <div class="card">
-                    <h3>Support</h3>
-                    <p>Reliable support services to keep you running smoothly.</p>
-                </div>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-[#f8fafb] group/design-root overflow-x-hidden" style='font-family: "Work Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e8eef3] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#0e161b]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M24 4H42V17.3333V30.6667H24V44H6V30.6667V17.3333H24V4Z" fill="currentColor"></path>
+              </svg>
             </div>
-        </div>
-    </section>
+            <h2 class="text-[#0e161b] text-lg font-bold leading-tight tracking-[-0.015em]">Zedexel Software Solutions</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-[#0e161b] text-sm font-medium leading-normal" href="#">Home</a>
+              <a class="text-[#0e161b] text-sm font-medium leading-normal" href="#">Services</a>
+              <a class="text-[#0e161b] text-sm font-medium leading-normal" href="#">Team</a>
+              <a class="text-[#0e161b] text-sm font-medium leading-normal" href="#">Contact</a>
+            </div>
+            <a href="https://wa.me/971509156095?text=Hello%20I%20am%20interested%20in%20your%20services" target="_blank">
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#1d8cd7] text-[#f8fafb] text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-5 h-5 mr-2">
+              <span class="truncate">Get In Touch</span>
+            </button>
+            </a>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="@container">
+              <div class="@[480px]:p-4">
+                <div
+                  class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10"
+                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("./assets/cover.png");'
+                >
+                  <div class="flex flex-col gap-2 text-left">
+                    <h1
+                      class="text-gray-200 text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+                    >
+                    Modernize your business with Zedexel
+                    </h1>
+                    <h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                      We help businesses optimise and grow their operations by developing custom made softwares.
+                    </h2>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#1d8cd7] text-[#f8fafb] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+                  >
+                    <span class="truncate">Learn more</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-10 px-4 py-10 @container">
+              <div class="flex flex-col gap-4">
+                <h1
+                  class="text-[#0e161b] tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
+                >
+                  Our services
+                </h1>
+                <p class="text-[#0e161b] text-base font-normal leading-normal max-w-[720px]">
+                  Zedexel is a team of Software Experts, ready to develop tailore made software solutions that fits your business need. Whether it is AI, IoT or Mobile Apps that resolves your business challenges, you don't need to worry about the details as we got you covered.
+                </p>
+              </div>
+            </div>
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+              <div class="flex flex-col gap-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/7f7092f2-2c65-47bb-9e55-f10b4d9df6ce.png");'
+                ></div>
+              </div>
+              <div class="flex flex-col gap-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/52ad0f8d-d50f-4018-a4b0-016366748cf9.png");'
+                ></div>
+              </div>
+              <div class="flex flex-col gap-3">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/11091148-1878-4d75-bb13-6cfa7e3f68bb.png");'
+                ></div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-10 px-4 py-10 @container">
+              <div class="flex flex-col gap-4">
+                <h1
+                  class="text-[#0e161b] tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
+                >
+                  Our process
+                </h1>
+                <p class="text-[#0e161b] text-base font-normal leading-normal max-w-[720px]">
+                  At Zedexel, we follow a proven process to deliver high-quality technology solutions that meet your business needs and exceed your expectations. From discovery and
+                  design to development, testing, deployment, and support, we guide you through every step of the project, ensuring a smooth and successful outcome.
+                </p>
+              </div>
+            </div>
+            <!-- founder section start -->
+            <h1 class="text-[#0e161b] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 text-center pb-3 pt-5">Meet our founders</h1>
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#d1dde6] bg-[#f8fafb] p-4 flex-col">
+                <!-- https://cdn.usegalileo.ai/sdxl10/79268643-7245-429c-b091-16539aefc6ef.png -->
+                <div
+                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
+                  style='background-image: url("https://media.licdn.com/dms/image/v2/D4D03AQEEVZrPsaQaAA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1710662622516?e=1740009600&v=beta&t=K-Muqz-A-NScpOi2SH8QJp0-RpofV8UZuLkOpqnQODs");'
+                ></div>
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-[#0e161b] text-base font-bold leading-tight">Adeeb Abdul Salam</h2>
+                  <p class="text-[#507a95] text-sm font-normal leading-normal">
+                    Co-Founder &amp; CEO • IIT Delhi Alumnus with 5+ years of experience building scalable technology platforms at companies like Tenderd (backed by YC S18, Peter Thiel) and Rootflo (backed by Microsoft for startups)
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#d1dde6] bg-[#f8fafb] p-4 flex-col">
+                <!-- https://cdn.usegalileo.ai/sdxl10/050cf046-8fab-4216-817e-cd663ee79a5a.png -->
+                <div
+                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
+                  style='background-image: url("https://media.licdn.com/dms/image/v2/D4D35AQHq-gqFPXL5ow/profile-framedphoto-shrink_800_800/profile-framedphoto-shrink_800_800/0/1709403343523?e=1735210800&v=beta&t=8HZBJN5AcsLq4JE0W-v1nOPZVk8e9QPzgFYtU03g7SI");'
+                ></div>
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-[#0e161b] text-base font-bold leading-tight">Husni Mubarack</h2>
+                  <p class="text-[#507a95] text-sm font-normal leading-normal">
+                    Co-Founder &amp; CTO • NITC Alumnus with 5+ years of experience leading tech teams at companies like Dell and Morgan Stanley
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#d1dde6] bg-[#f8fafb] p-4 flex-col">
+                <div
+                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
+                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/125dad84-2fa8-4d70-ad91-a512c63f0eed.png");'
+                ></div>
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-[#0e161b] text-base font-bold leading-tight">Hamish Mohammed</h2>
+                  <p class="text-[#507a95] text-sm font-normal leading-normal">
+                    Co-Founder &amp; AI Lead • NITC Alumnus, MS (DataScience) with 5+ years of experience in AI and ML Ops at established corporates in India
+                  </p>
+                </div>
+              </div>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>Have questions? Get in touch with us at <a href="mailto:zedexeltech@gmail.com">zedexeltech@gmail.com</a>.</p>
-        </div>
-    </section>
+              <div class="flex flex-1 gap-3 rounded-lg border border-[#d1dde6] bg-[#f8fafb] p-4 flex-col">
+                <div
+                  class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 shrink-0"
+                  style='background-image: url("https://cdn.usegalileo.ai/sdxl10/79268643-7245-429c-b091-16539aefc6ef.png");'
+                ></div>
+                <div class="flex flex-col gap-1">
+                  <h2 class="text-[#0e161b] text-base font-bold leading-tight">Azhar Alifvilla</h2>
+                  <p class="text-[#507a95] text-sm font-normal leading-normal">
+                    Co-Founder • NITC Alumnus, 5+ years of experience in Software Engineering at established corporates in India
+                  </p>
+                </div>
+              </div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Zedexel. All rights reserved.</p>
+
+            </div>
+            <div class="flex px-4 py-3 justify-center">
+                <a href="https://www.linkedin.com/in/adeebabdulsalam/" target="_blank">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#e8eef3] text-[#0e161b] text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">Connect on LinkedIn</span>
+              </button>
+                </a>
+            </div>
+             <!-- founder section end -->
+            <!-- <div class="@container">
+              <div class="flex flex-col justify-end gap-6 px-4 py-10 @[480px]:gap-8 @[480px]:px-10 @[480px]:py-20">
+                <div class="flex flex-col gap-2 text-center">
+                  <h1
+                    class="text-[#0e161b] tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
+                  >
+                    Ready to build something great?
+                  </h1>
+                </div>
+                <div class="flex flex-1 justify-center">
+                  <div class="flex justify-center">
+                    <button
+                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#1d8cd7] text-[#f8fafb] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] grow"
+                    >
+                      <span class="truncate">Get in touch</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+            <div class="@container">
+                <div class="flex flex-col justify-end gap-6 px-4 py-10 @[480px]:gap-8 @[480px]:px-10 @[480px]:py-20">
+                  <div class="flex flex-col gap-2 text-center">
+                    <h1
+                      class="text-[#0e161b] tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
+                    >
+                      Ready to build something great?
+                    </h1>
+                  </div>
+                  <div class="flex flex-1 justify-center">
+                    <form class="w-full max-w-[480px] space-y-4">
+                      <!-- Name/Company Name -->
+                      <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Name/Company Name</label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                          placeholder="Enter your name or company name"
+                          required
+                        />
+                      </div>
+                      <!-- Phone -->
+                      <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700">Phone (with country code)</label>
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                          placeholder="+971 509167908"
+                          required
+                        />
+                      </div>
+                      <!-- Message -->
+                      <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          rows="4"
+                          class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                          placeholder="Enter your message"
+                          required
+                        ></textarea>
+                      </div>
+                      <!-- Submit Button -->
+                      <div class="flex justify-center">
+                        <button
+                          type="submit"
+                          class="flex min-w-[84px] max-w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#1d8cd7] text-[#f8fafb] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+                        >
+                          <span class="truncate">Contact Us</span>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+          </div>
         </div>
-    </footer>
-</body>
+      </div>
+    </div>
+  </body>
 </html>
