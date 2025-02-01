@@ -78,9 +78,22 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
-        <button className="bg-white text-purple-600 px-4 py-2 rounded-md">
-          Get Started
-        </button>
+        <a
+          href="https://wa.me/971509156095?text=Hello%20I%20am%20interested%20in%20your%20services"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button
+            className="flex items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-white text-black text-xs sm:text-sm font-bold leading-normal"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+              alt="WhatsApp"
+              className="w-4 h-4 mr-2 sm:w-5 sm:h-5"
+            />
+            <span>Get In Touch</span>
+          </button>
+        </a>
       </div>
     </nav>
   );
