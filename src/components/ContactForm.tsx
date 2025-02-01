@@ -47,9 +47,11 @@ const ContactForm = () => {
         {/* Submit Button */}
         <div className="text-center">
           <button
-            type="submit"
-            className="w-full bg-gray-600 text-white py-3 rounded-lg hover:bg-gray-500 focus:outline-none"
-          >
+              type="submit"
+              // className="w-full bg-gray-600 text-white py-3 rounded-lg hover:bg-gray-500 focus:outline-none"
+              className="w-full py-3 rounded-lg text-white focus:outline-none bg-gray-500 cursor-not-allowed"
+              disabled
+            >
             Send Message
           </button>
         </div>
