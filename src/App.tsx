@@ -9,8 +9,10 @@ import Footer from "./components/Footer";
 const App = () => {
   return (
     <>
-      <Navbar />
-      <Hero />
+      <div className="bg-[url('hero-bg.svg')] bg-cover bg-center">
+        <Navbar />
+        <Hero />
+      </div>
       <Services />
       <Team />
       <Contact />

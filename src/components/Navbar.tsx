@@ -25,26 +25,35 @@ const Navbar = () => {
 
   // A helper function to determine the styles for each link
   const getLinkStyles = (link: string) => {
-    const staticStyles = "cursor-pointer font-semibold text-white"
+    const commonStyles = "cursor-pointer font-semibold";
+    const scrollStyles = isScrolled ? "text-white" : "text-black";
     const conditionalStyles = activeLink === link
       ? ""
-      : "text-opacity-50 hover:text-white transition-colors duration-500 ease-in-out";
-    return `${staticStyles} ${conditionalStyles}`;
+      : "text-opacity-50 hover:text-opacity-100 transition-colors duration-500 ease-in-out";
+    return `${commonStyles} ${scrollStyles} ${conditionalStyles}`;
+  };
+
+  const getNavStyles = () => {
+    const commonStyles = "py-4 fixed top-0 left-0 w-full z-50 transition-all duration-300";
+    const conditionalStyles = isScrolled ? "bg-gray-800 text-white" : "bg-transparent";
+    return `${commonStyles} ${conditionalStyles}`;
+  };
+
+  const getWhatsappButtonStyles = () => {
+    const commonStyles = "flex items-center justify-center overflow-hidden rounded-xl h-10 px-4 text-xs sm:text-sm font-bold leading-normal";
+    const conditionalStyles = isScrolled ? "bg-white text-black" : "bg-slate-700 text-white";
+    return `${commonStyles} ${conditionalStyles}`;
   };
 
   return (
-    <nav
-      className={`${
-        isScrolled ? "bg-zinc-800" : "bg-gradient-to-r from-purple-600 to-pink-500"
-      } text-white py-4 fixed top-0 left-0 w-full z-50 transition-all duration-300`}
-    >
+    <nav className={getNavStyles()}>
       <div className="container mx-auto flex justify-between items-center px-4">
         <h1 className="text-xl font-bold">Zedexel</h1>
         <ul className="hidden md:flex space-x-10">
           <li>
             <a
               href="#home"
-              className={`${getLinkStyles("home")} `}
+              className={`${getLinkStyles("home")}`}
               onClick={() => handleLinkClick("home")}
             >
               Home
@@ -83,9 +92,7 @@ const Navbar = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <button
-            className="flex items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-white text-black text-xs sm:text-sm font-bold leading-normal"
-          >
+          <button className={getWhatsappButtonStyles()}>
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
               alt="WhatsApp"
