@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ReactComponent as Logo } from "../logo.svg";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,10 +46,18 @@ const Navbar = () => {
     return `${commonStyles} ${conditionalStyles}`;
   };
 
+  const getLogoStyles = () => {
+    const scrollStyles =  isScrolled ? "fill-white" : "fill-black";
+    return "h-14 w-auto " + scrollStyles;
+  };
+
   return (
     <nav className={getNavStyles()}>
       <div className="container mx-auto flex justify-between items-center px-4">
-        <h1 className="text-xl font-bold">Zedexel</h1>
+        <div className="flex items-center">
+          <Logo className={getLogoStyles()} />
+          <h1 className="text-xl font-bold">Zedexel</h1>
+        </div>
         <ul className="hidden md:flex space-x-10">
           <li>
             <a
