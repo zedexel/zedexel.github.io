@@ -44,3 +44,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Github Pages Deployment
+
+Run these commands to deploy this app to Github Pages. 
+```shell
+npm run build
+npm run deploy
+```
