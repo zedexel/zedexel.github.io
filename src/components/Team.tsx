@@ -13,30 +13,18 @@ const teamMembers = [
     "description": "NIT Calicut Alumnus with 5+ years of experience leading tech teams at companies like Dell and Morgan Stanley.",
     "photo": "images/husni.jpg",
   },
-  {
-    "name": "Mohammed Hashim",
-    "role": "Investor",
-    "description": "NIT Calicut and Chennai Mathematical Institute alumnus with 5+ years of experience in AI and ML Ops at leading MNCs.",
-    "photo": "images/hashim.jpeg",
-  },
-  {
-    "name": "Ameen",
-    "role": "Investor",
-    "description": "NIT Calicut Alumnus with 5+ years of experience in Data Engineering at leading MNCs.",
-    "photo": "images/ameen.jpg",
-  },
 ];
 
 const Team = () => {
   return (
     <section id="team" className="py-20 bg-white text-center">
-      <div className="max-w-5xl mx-auto px-6">
-        <h2 className="text-4xl font-bold mb-12 text-gray-900">Meet Our Team</h2>
-        <div className="grid md:grid-cols-4 gap-8">
+      <div className="max-w-4xl mx-auto px-6">
+        <h2 className="text-4xl font-bold mb-12 text-gray-900">Meet Our Founders</h2>
+        <div className="grid md:grid-cols-2 gap-14">
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="p-6 border rounded-lg shadow-md shadow-slate-400 flex flex-col items-center text-center bg-gradient-to-r from-slate-700 to-gray-600"
+              className="p-6 border rounded-lg shadow-md shadow-slate-400 flex flex-col items-center text-center bg-gradient-to-t from-slate-700 to-gray-600"
             >
               <img
                 src={member.photo}

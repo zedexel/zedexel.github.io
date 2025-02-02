@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-16 bg-gray-800 text-white text-center">
       <h2 className="text-3xl font-bold mb-6">Contact Us</h2>
-      <div className="flex flex-wrap items-top justify-center px-32 py-2">
+      <div className="flex flex-wrap items-top justify-center max-w-6xl mx-auto px-10 py-2">
         {/* Left Section: Contact Info */}
         <div className="px-4 lg:w-7/12 xl:w-8/12 py-10">
           <div className="flex flex-wrap flex-col justify-center text-left items-center space-y-5">
