@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Trigger this workflow when code is pushed to the 'main' branch
+      - v3  # Trigger this workflow when code is pushed to the 'main' branch
 
 jobs:
   build:
@@ -33,6 +33,7 @@ jobs:
       run: |
         git config --global user.name "zedexeltech"
         git config --global user.email "zedexeltech@gmail.com"
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
     # Deploy to GitHub Pages using gh-pages
     - name: Deploy to GitHub Pages
