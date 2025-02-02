@@ -1,0 +1,35 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Trigger this workflow when code is pushed to the 'main' branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    # Checkout the code from the repository
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Set up Node.js (this step is optional if you're using a specific version of Node.js)
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '23.5.0'
+
+    # Install dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # Build the app
+    - name: Build the app
+      run: npm run build
+
+    # Deploy to GitHub Pages using gh-pages
+    - name: Deploy to GitHub Pages
+      run: npm run deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token provided by GitHub automatically
