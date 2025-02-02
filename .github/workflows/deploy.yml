@@ -28,6 +28,12 @@ jobs:
     - name: Build the app
       run: npm run build
 
+    # Set Git user info for commit
+    - name: Set Git user
+      run: |
+        git config --global user.name "zedexeltech"
+        git config --global user.email "zedexeltech@gmail.com"
+
     # Deploy to GitHub Pages using gh-pages
     - name: Deploy to GitHub Pages
       run: npm run deploy
