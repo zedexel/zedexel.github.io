@@ -35,8 +35,8 @@ const Navbar = () => {
   };
 
   const getNavStyles = () => {
-    const commonStyles = "py-4 fixed top-0 left-0 w-full z-50 transition-all duration-300";
-    const conditionalStyles = isScrolled ? "bg-gray-800 text-white" : "bg-transparent";
+    const commonStyles = "fixed top-0 left-0 w-full z-50 transition-all duration-300";
+    const conditionalStyles = isScrolled ? "py-0 bg-gray-800 text-white" : "py-4 bg-transparent text-black";
     return `${commonStyles} ${conditionalStyles}`;
   };
 
@@ -56,7 +56,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center px-4">
         <div className="flex items-center">
           <Logo className={getLogoStyles()} />
-          <h1 className="text-xl font-bold">Zedexel</h1>
+          <h1 className="text-xl font-extrabold">Zedexel</h1>
         </div>
         <ul className="hidden md:flex space-x-10">
           <li>
