@@ -53,7 +53,7 @@ const Navbar = () => {
 
   const getNavStyles = () => {
     return `fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? "py-0 bg-gray-800 text-white" : "py-4 bg-transparent text-black"
+      isScrolled ? "py-2 bg-gray-800 text-white" : "py-4 bg-transparent text-black"
     }`;
   };
 
@@ -64,7 +64,7 @@ const Navbar = () => {
   };
 
   const getLogoStyles = () => {
-    return `h-14 w-auto ${isScrolled ? "fill-white" : "fill-black"}`;
+    return `h-4 w-auto ${isScrolled ? "fill-white" : "fill-black"}`;
   };
 
   return (

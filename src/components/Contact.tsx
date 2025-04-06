@@ -16,7 +16,7 @@ const Contact = () => {
                 {(FaMapMarkerAlt as any)({ size: 32 })}
               </div>
               <div>
-                <h3 className="text-lg font-semibold">Our Address</h3>
+                <h3 className="text-lg font-semibold">Address</h3>
                 <p className="text-base text-gray-300">
                   Office B44-015, Block B, SRTIP, UAE
                 </p>
