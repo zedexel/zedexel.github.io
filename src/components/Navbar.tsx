@@ -70,10 +70,10 @@ const Navbar = () => {
   return (
     <nav className={getNavStyles()}>
       <div className="container mx-auto flex justify-between items-center px-4">
-        <div className="flex items-center space-x-2">
+        <a href="#home" className="flex items-center space-x-2">
           <Logo className={getLogoStyles()} />
           <h1 className="text-xl font-bold font-logo">Zedexel</h1>
-        </div>
+        </a>
         <ul className="hidden md:flex space-x-10">
           {sections.map((section) => (
             <li key={section}>
