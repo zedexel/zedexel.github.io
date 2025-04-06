@@ -1,4 +1,5 @@
 import React from "react";
+import Clients from "./Clients";
 
 const Services = () => {
   return (
@@ -37,9 +38,9 @@ const Services = () => {
           </svg>
           <h3 className="text-xl font-semibold text-gray-900 mb-2">AI Solutions</h3>
           <p className="text-gray-700">
-            Harness the power of artificial intelligence with our advanced machine learning models, 
-            natural language processing, and predictive analytics. We build AI-driven tools to 
-            automate processes, enhance decision-making, and unlock new opportunities.
+            Harness the power of artificial intelligence through natural language processing, 
+            predictive analytics, and smart automation. We build AI-powered tools that streamline 
+            operations, support better decision-making, and uncover new growth opportunities.
           </p>
         </div>
 
@@ -164,6 +165,8 @@ const Services = () => {
           </p>
         </div>
       </div>
+
+      <Clients />
     </section>
   );
 };
