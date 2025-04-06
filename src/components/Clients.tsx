@@ -4,6 +4,7 @@ const Clients = () => {
   const clientLogos = [
     { src: 'clients/monaco.png', href: 'https://www.monaco.ae' },
     { src: 'clients/bigtrader.png', href: 'https://www.bigtrader.biz' },
+    { src: 'clients/iprocure.png', href: 'https://iprocure.ai' },
   ];
 
   const repeatedLogos = Array(4).fill(clientLogos).flat();
