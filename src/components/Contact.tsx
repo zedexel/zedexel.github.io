@@ -4,7 +4,7 @@ import ContactForm from "./ContactForm";
 const Contact = () => {
   return (
     <section id="contact" className="py-16 bg-gray-800 text-white text-center">
-      <h2 className="text-3xl font-bold mb-10">Contact Us</h2>
+      <h2 className="text-4xl font-bold mb-10">Contact Us</h2>
 
       <div className="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-start justify-between gap-12">
         {/* Left: Contact Info */}
