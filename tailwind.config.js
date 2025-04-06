@@ -12,6 +12,10 @@ export default {
       animation: {
         marquee: 'marquee 20s linear infinite',
       },
+      fontFamily: {
+        heading: ['Urbanist', 'sans-serif'],
+        body: ['Urbanist', 'sans-serif'],
+      },
     },
   },
   plugins: [],
