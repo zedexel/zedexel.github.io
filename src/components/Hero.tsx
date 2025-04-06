@@ -7,7 +7,7 @@ const Hero = () => {
       className="h-screen flex flex-col justify-center items-center text-center bg-transparent text-gray-900 pb-40"
     >
       <h2 className="text-5xl font-bold mb-4">Modernize your business with Zedexel</h2>
-      <p className="text-lg mb-6">
+      <p className="text-lg mb-6 font-medium">
         We help businesses optimize and scale their operations with custom software solutions
       </p>
       <a href="#services">
