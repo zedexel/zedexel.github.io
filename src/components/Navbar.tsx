@@ -56,7 +56,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center px-4">
         <div className="flex items-center">
           <Logo className={getLogoStyles()} />
-          <h1 className="text-xl font-extrabold">Zedexel</h1>
+          <h1 className="text-xl font-bold font-logo">Zedexel</h1>
         </div>
         <ul className="hidden md:flex space-x-10">
           <li>

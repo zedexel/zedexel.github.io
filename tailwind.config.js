@@ -15,6 +15,7 @@ export default {
       fontFamily: {
         heading: ['Urbanist', 'sans-serif'],
         body: ['Urbanist', 'sans-serif'],
+        logo: ['Poppins', 'sans-serif'],
       },
     },
   },
