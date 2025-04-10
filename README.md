@@ -2,6 +2,18 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## ⚙️ Environment Variables
+
+To run the app locally, create a `.env` file in the root of the project with the following variables:
+
+```env
+REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key_here
+REACT_APP_EMAILJS_SERVICE_ID=your_service_id_here
+REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id_here
+```
+
+These are required for sending emails using EmailJS.
+
 ## Available Scripts
 
 In the project directory, you can run:
