@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import validator from "validator";
 
 const ContactForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -20,15 +21,19 @@ const ContactForm = () => {
 
   const validate = () => {
     const newErrors = {
-      name: formData.name.trim() === "" ? "Name is required" : "",
-      email: !formData.email.trim()
+      name: validator.isEmpty(formData.name.trim())
+        ? "Name is required"
+        : "",
+      email: validator.isEmpty(formData.email.trim())
         ? "Email is required"
-        : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+        : !validator.isEmail(formData.email.trim())
         ? "Enter a valid email address"
         : "",
-      message: formData.message.trim() === "" ? "Message is required" : "",
+      message: validator.isEmpty(formData.message.trim())
+        ? "Message is required"
+        : "",
     };
-
+  
     setErrors(newErrors);
     return Object.values(newErrors).every((err) => err === "");
   };
@@ -45,6 +50,17 @@ const ContactForm = () => {
     if (!validate() || !formRef.current) return;
   
     setLoading(true);
+
+    const sanitizedFormData = {
+      name: validator.escape(formData.name.trim()),
+      email: validator.normalizeEmail(formData.email.trim()) || "", // normalize fixes casing and dots for Gmail
+      message: validator.escape(formData.message.trim()),
+    };
+  
+    // Optionally: set values directly to formRef for EmailJS
+    (formRef.current.elements.namedItem("name") as HTMLInputElement).value = sanitizedFormData.name;
+    (formRef.current.elements.namedItem("email") as HTMLInputElement).value = sanitizedFormData.email;
+    (formRef.current.elements.namedItem("message") as HTMLTextAreaElement).value = validator.escape(formData.message.trim());
   
     emailjs
       .sendForm(
@@ -54,7 +70,7 @@ const ContactForm = () => {
         process.env.REACT_APP_EMAILJS_PUBLIC_KEY!
       )
       .then(() => {
-        setStatus({ type: "success", message: "Your message has been sent successfully!" });
+        setStatus({ type: "success", message: "Message sent successfully!" });
         formRef.current?.reset();
         setFormData({ name: "", email: "", message: "" });
       })
