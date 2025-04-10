@@ -69,12 +69,14 @@ const ContactForm = () => {
         formRef.current,
         process.env.REACT_APP_EMAILJS_PUBLIC_KEY!
       )
-      .then(() => {
+      .then((response) => {
+        console.log("Email sent successfully:", response);
         setStatus({ type: "success", message: "Message sent successfully!" });
         formRef.current?.reset();
         setFormData({ name: "", email: "", message: "" });
       })
-      .catch(() => {
+      .catch((error) => {
+        console.error("Failed to send email:", error);
         setStatus({ type: "error", message: "Something went wrong. Please try again." });
       })
       .finally(() => setLoading(false));
