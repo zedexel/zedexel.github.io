@@ -133,7 +133,7 @@ const ContactForm = () => {
         </div>
 
         {/* Time (hidden input) */}
-        <input type="hidden" name="time" value={new Date().toLocaleString()} />
+        <input type="hidden" name="time" value={new Date().toUTCString()} />
 
         {/* Submit Button */}
         <div className="text-center">

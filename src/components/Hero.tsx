@@ -11,7 +11,7 @@ const Hero = () => {
         We help businesses optimize and scale their operations with custom software solutions
       </p>
       <a href="#services">
-        <button className="bg-slate-800 text-white px-6 py-3 rounded-md font-semibold">
+        <button className="bg-slate-800 hover:bg-slate-700 text-white px-6 py-3 rounded-md font-semibold">
           Learn more
         </button>
       </a>

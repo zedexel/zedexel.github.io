@@ -58,7 +58,8 @@ const Navbar = () => {
   };
 
   const getWhatsappButtonStyles = () => {
-    return `flex items-center justify-center overflow-hidden rounded-xl h-10 px-4 text-xs sm:text-sm font-bold leading-normal ${
+    return `flex items-center justify-center overflow-hidden rounded-xl h-10 px-4 text-xs sm:text-sm
+      font-bold leading-normal hover:shadow-md hover:shadow-gray-400 ${
       isScrolled ? "bg-white text-black" : "bg-slate-700 text-white"
     }`;
   };
