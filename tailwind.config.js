@@ -16,6 +16,7 @@ export default {
         heading: ['Urbanist', 'sans-serif'],
         body: ['Urbanist', 'sans-serif'],
         logo: ['Poppins', 'sans-serif'],
+        quote: ['"Passion One"', 'sans-serif']
       },
     },
   },

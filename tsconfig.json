@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx",
+    "jsx": "react-jsx", // this is fine for React 17+
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowJs": true,
@@ -8,7 +8,7 @@
     "strict": true,
     "module": "esnext",
     "target": "es5",
-    "lib": ["dom", "esnext"]
+    "lib": ["dom","ES2015", "esnext"]
   },
   "include": ["src"]
 }
