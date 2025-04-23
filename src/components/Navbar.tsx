@@ -1,40 +1,79 @@
 import { useState, useEffect } from "react";
 import { ReactComponent as Logo } from "../logo.svg";
+import { useNavigate, useLocation } from "react-router-dom";
 
-const sections = ["home", "services", "team", "contact"];
+const sections = ["home", "services","projects", "testimonials", "team", "contact"];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setIsScrolled(window.scrollY > 50);
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+
+  //   const observerOptions = {
+  //     root: null,
+  //     rootMargin: "0px",
+  //     threshold: 0.,
+  //   };
+
+  //   const observer = new IntersectionObserver((entries) => {
+  //     entries.forEach((entry) => {
+
+  //       if (entry.isIntersecting) {
+  //         const id = entry.target.getAttribute("id");
+  //         if (id) setActiveLink(id);
+  //       }
+  //     });
+  //   }, observerOptions);
+
+  //   sections.forEach((id) => {
+  //     const el = document.getElementById(id);
+  //     if (el) observer.observe(el);
+  //   });
+
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //     sections.forEach((id) => {
+  //       const el = document.getElementById(id);
+  //       if (el) observer.unobserve(el);
+  //     });
+  //   };
+  // }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    if (location.pathname !== "/") return;
+  
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
-
+  
     const observerOptions = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.6, // Adjust this to control when a section is considered active
+      threshold: 0.3,
     };
-
+  
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute("id");
-          if (id) setActiveLink(id);
-        }
-      });
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (visible.length > 0) {
+        const id = visible[0].target.getAttribute("id");
+        if (id) setActiveLink(id);
+      }
     }, observerOptions);
-
-    // Observe each section
+  
     sections.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
-
+  
     return () => {
       window.removeEventListener("scroll", handleScroll);
       sections.forEach((id) => {
@@ -42,7 +81,20 @@ const Navbar = () => {
         if (el) observer.unobserve(el);
       });
     };
-  }, []);
+  }, [location.pathname]); // ← Depend on pathname
+  
+
+  const handleNavClick = (section: string) => {
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: section } });
+    } else {
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    setActiveLink(section);
+  };
 
   const getLinkStyles = (link: string) => {
     const base = "cursor-pointer font-semibold";
@@ -71,20 +123,19 @@ const Navbar = () => {
   return (
     <nav className={getNavStyles()}>
       <div className="container mx-auto flex justify-between items-center px-4">
-        <a href="#home" className="flex items-center space-x-2">
+        <button onClick={() => handleNavClick("home")} className="flex items-center space-x-2">
           <Logo className={getLogoStyles()} />
           <h1 className="text-xl font-bold font-logo">Zedexel</h1>
-        </a>
+        </button>
         <ul className="hidden md:flex space-x-10">
           {sections.map((section) => (
             <li key={section}>
-              <a
-                href={`#${section}`}
+              <button
+                onClick={() => handleNavClick(section)}
                 className={getLinkStyles(section)}
-                onClick={() => setActiveLink(section)}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
-              </a>
+              </button>
             </li>
           ))}
         </ul>

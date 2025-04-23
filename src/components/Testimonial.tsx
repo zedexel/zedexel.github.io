@@ -62,7 +62,7 @@ const Testimonial: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center py-16 px-4">
+    <div className="min-h-screen bg-white flex flex-col items-center py-16 px-4" id='testimonials'>
       <div className="w-full max-w-7xl">
         {/* Header Section */}
         <div className="text-center mb-20">

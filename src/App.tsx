@@ -6,11 +6,12 @@ import Team from "./components/Team";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Testimonial from "./components/Testimonial";
-import SingleServicePage from "./components/SingleServicePage"; // import your single service page
+// import SingleServicePage from "./components/SingleServicePage"; // import your single service page
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+import Project from "./components/Projects";
 
 const App = () => {
   return (
@@ -20,7 +21,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home/>}/>
         {/* Define the route for the single service page */}
-        <Route path="/single" element={<SingleServicePage />} />
+        <Route path="/single" element={<Project />} />
 
         {/* Define other routes for other sections */}
         <Route path="/services" element={<Services />} />
