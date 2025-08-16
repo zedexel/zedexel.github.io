@@ -37,6 +37,7 @@ const Products: React.FC = () => {
       features: [
         { text: "500 conversations" },
         { text: "Lead capture" },
+        { text: "Conversation summary" },
         { text: "Basic customization" },
       ],
     },
@@ -46,6 +47,7 @@ const Products: React.FC = () => {
       features: [
         { text: "1000 conversations" },
         { text: "Lead capture" },
+        { text: "Conversation summary" },
         { text: "Basic customization" },
       ],
     },
@@ -83,7 +85,7 @@ const Products: React.FC = () => {
           {/* ZedChat Product */}
           <ProductCard
             title="ZedChat"
-            description="An AI chatbot that can be customized for your business use case related enquiries and capture leads from website visitors"
+            description="An AI chatbot customized to your business use case and capture leads from website visitors"
           >
             <div className="mt-8">
               <h4 className="text-2xl font-semibold text-gray-800 mb-8 text-center">
