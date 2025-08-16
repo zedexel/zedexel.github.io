@@ -2,10 +2,18 @@ import React from "react";
 
 const Clients = () => {
   const clientLogos = [
-    { src: "clients/monaco.png", href: "https://www.monaco.ae" },
-    { src: "clients/bigtrader.png", href: "https://www.bigtrader.biz" },
-    { src: "clients/iprocure.png", href: "https://iprocure.ai" },
-    { src: "clients/sbc.png", href: "https://sbcexpresscargo.com/" },
+    { src: "clients/monaco.png", href: "https://www.monaco.ae", invert: true },
+    {
+      src: "clients/bigtrader.png",
+      href: "https://www.bigtrader.biz",
+      invert: true,
+    },
+    { src: "clients/iprocure.png", href: "https://iprocure.ai", invert: true },
+    {
+      src: "clients/sbc.png",
+      href: "https://sbcexpresscargo.com/",
+      invert: false,
+    },
   ];
 
   const repeatedLogos = Array(4).fill(clientLogos).flat();
@@ -28,7 +36,9 @@ const Clients = () => {
                 <img
                   src={logo.src}
                   alt={`Client ${index + 1}`}
-                  className="h-16 w-auto max-w-[150px] object-contain invert opacity-50 hover:opacity-100 transition-opacity duration-300"
+                  className={`h-12 w-auto max-w-[112px] object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 ${
+                    logo.invert ? "invert" : ""
+                  }`}
                 />
               </a>
             </div>
