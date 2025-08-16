@@ -22,18 +22,18 @@ const PricingCard: React.FC<PricingCardProps> = ({
   isEnterprise = false,
   contactInfo,
 }) => {
-  return (
-    <div className="bg-gradient-to-b from-white to-blue-50 rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-xl hover:from-white hover:to-blue-100 animate-fade-in-up flex flex-col h-full border border-blue-100">
-      <h3 className="text-xl font-bold text-gray-800 mb-4">{title}</h3>
-      <div className="mb-6">
-        <span className="text-4xl font-bold text-blue-600">{price}</span>
-        {!isEnterprise && <span className="text-gray-500 ml-2">/month</span>}
+    return (
+    <div className="card rounded-xl p-8 transition-all duration-500 hover:scale-105 animate-fade-in-up flex flex-col h-full group hover:border-primary-500/50">
+      <h3 className="text-2xl font-bold text-dark-50 mb-6 group-hover:text-primary-400 transition-colors duration-300">{title}</h3>
+      <div className="mb-8">
+        <span className="text-5xl font-bold text-primary-400">{price}</span>
+        {!isEnterprise && <span className="text-dark-400 ml-2 text-lg">/month</span>}
       </div>
-      <ul className="space-y-3 mb-6 flex-grow">
+      <ul className="space-y-4 mb-8 flex-grow">
         {features.map((feature, index) => (
-          <li key={index} className="flex items-center text-gray-600">
+          <li key={index} className="flex items-center text-dark-300">
             <svg
-              className="w-5 h-5 text-blue-500 mr-2"
+              className="w-6 h-6 text-primary-400 mr-3 flex-shrink-0"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -53,15 +53,15 @@ const PricingCard: React.FC<PricingCardProps> = ({
         href={`https://wa.me/971509156095?text=Hello%20I%20am%20interested%20in%20the%20${title}%20plan%20for%20ZedChat`}
         target="_blank"
         rel="noopener noreferrer"
-        className="block w-full"
+        className="block w-full mt-auto"
       >
-        <button className="w-full flex items-center justify-center bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-sm hover:shadow">
+        <button className="w-full flex items-center justify-center bg-primary-600 text-white py-4 px-6 rounded-xl hover:bg-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
             alt="WhatsApp"
             className="w-5 h-5 mr-2"
           />
-          <span>{isEnterprise ? "Contact Sales" : "Get Started"}</span>
+          <span className="font-semibold">{isEnterprise ? "Contact Sales" : "Get Started"}</span>
         </button>
       </a>
     </div>

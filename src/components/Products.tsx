@@ -69,13 +69,19 @@ const Products: React.FC = () => {
   ];
 
   return (
-    <section id="products" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+    <section id="products" className="py-24 bg-dark-800/30 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 right-20 w-64 h-64 bg-primary-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-64 h-64 bg-accent-500/5 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-20">
+          <h2 className="text-5xl md:text-6xl font-bold text-dark-50 mb-6">
             Our Products
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-dark-300 max-w-3xl mx-auto text-lg">
             Discover our innovative solutions designed to enhance your business
             operations
           </p>

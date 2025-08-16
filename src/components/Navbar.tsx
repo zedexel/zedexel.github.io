@@ -73,30 +73,30 @@ const Navbar = () => {
   }, []);
 
   const getLinkStyles = (link: string) => {
-    const base = "cursor-pointer font-semibold";
-    const scrolled = isScrolled ? "text-white" : "text-black";
+    const base = "cursor-pointer font-semibold transition-all duration-300";
+    const scrolled = isScrolled ? "text-dark-100" : "text-dark-100";
     const active =
-      activeLink === link ? "opacity-100" : "opacity-50 hover:opacity-100";
-    return `${base} ${scrolled} ${active} transition-opacity duration-300`;
+      activeLink === link ? "text-primary-400" : "text-dark-300 hover:text-primary-400";
+    return `${base} ${scrolled} ${active}`;
   };
 
   const getNavStyles = () => {
     return `fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
       isScrolled
-        ? "py-2 bg-gray-800 text-white"
-        : "py-4 bg-transparent text-black"
+        ? "py-3 glass-effect backdrop-blur-md"
+        : "py-4 bg-transparent"
     }`;
   };
 
   const getWhatsappButtonStyles = () => {
     return `flex items-center justify-center overflow-hidden rounded-xl h-10 px-4 text-xs sm:text-sm
-      font-bold leading-normal hover:shadow-md hover:shadow-gray-400 ${
-        isScrolled ? "bg-white text-black" : "bg-slate-700 text-white"
+      font-bold leading-normal transition-all duration-300 hover:scale-105 ${
+        isScrolled ? "bg-primary-600 text-white hover:bg-primary-700" : "bg-primary-600 text-white hover:bg-primary-700"
       }`;
   };
 
   const getLogoStyles = () => {
-    return `h-4 w-auto ${isScrolled ? "fill-white" : "fill-black"}`;
+    return `h-4 w-auto ${isScrolled ? "fill-primary-400" : "fill-primary-400"}`;
   };
 
   const handleLinkClick = (section: string) => {
@@ -142,11 +142,11 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+          className="md:hidden p-2 rounded-lg hover:bg-dark-800/50 transition-colors duration-300"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <svg
-            className={`w-6 h-6 ${isScrolled ? "text-white" : "text-black"}`}
+            className="w-6 h-6 text-dark-100"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -191,7 +191,7 @@ const Navbar = () => {
       <div
         className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 ease-in-out ${
           isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-        } overflow-hidden ${isScrolled ? "bg-gray-800" : "bg-white"}`}
+        } overflow-hidden glass-effect`}
       >
         <ul className="px-4 py-2">
           {sections.map((section) => (

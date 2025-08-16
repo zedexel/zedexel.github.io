@@ -14,13 +14,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
   children,
 }) => {
   return (
-    <div className="bg-white rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-2xl hover:scale-105 animate-fade-in-up">
-      <h3 className="text-3xl font-bold text-gray-800 mb-4">{title}</h3>
-      <p className="text-gray-600 mb-6">{description}</p>
+    <div className="card rounded-2xl p-10 transition-all duration-500 hover:scale-105 animate-fade-in-up group">
+      <h3 className="text-4xl font-bold text-dark-50 mb-6 group-hover:text-primary-400 transition-colors duration-300">{title}</h3>
+      <p className="text-dark-300 mb-8 text-lg leading-relaxed">{description}</p>
       {isComingSoon ? (
-        <div className="bg-gray-100 rounded-lg p-6 text-center">
-          <p className="text-2xl font-semibold text-gray-700">Coming Soon</p>
-          <p className="text-gray-500 mt-2">Stay tuned for updates!</p>
+        <div className="glass-effect rounded-xl p-8 text-center">
+          <p className="text-2xl font-semibold text-dark-100">Coming Soon</p>
+          <p className="text-dark-400 mt-2">Stay tuned for updates!</p>
         </div>
       ) : (
         children

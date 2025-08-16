@@ -11,16 +11,16 @@ import ChatBot from "./components/ChatBot";
 const App = () => {
   return (
     <>
-      <div className="bg-[url('hero-bg.svg')] bg-cover bg-center">
+      <div className="min-h-screen bg-dark-950">
         <Navbar />
         <Hero />
+        <Services />
+        <Products />
+        <Team />
+        <Contact />
+        <Footer />
+        <ChatBot />
       </div>
-      <Services />
-      <Products />
-      <Team />
-      <Contact />
-      <Footer />
-      <ChatBot />
     </>
   );
 };

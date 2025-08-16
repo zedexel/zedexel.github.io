@@ -13,11 +13,17 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="py-20 px-6 bg-gradient-to-br from-gray-100 to-white text-center"
+      className="py-24 px-6 bg-dark-900/50 text-center relative overflow-hidden"
     >
-      <div className="max-w-4xl mx-auto mb-16">
-        <h2 className="text-5xl font-bold mb-6 text-gray-900">Our Services</h2>
-        <p className="text-xl text-gray-700 leading-relaxed font-medium">
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-20 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 bg-accent-500/10 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="relative z-10 max-w-6xl mx-auto mb-20">
+        <h2 className="text-5xl md:text-6xl font-bold mb-8 text-dark-50">Our Services</h2>
+        <p className="text-xl text-dark-300 leading-relaxed font-medium max-w-4xl mx-auto">
           At Zedexel, we specialize in crafting custom software solutions 
           that empower your business to thrive in a digital world. Our team of seasoned experts 
           leverages cutting-edge technologies to deliver innovative, scalable, and reliable systems 

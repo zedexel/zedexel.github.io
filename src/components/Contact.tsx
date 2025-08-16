@@ -1,55 +1,67 @@
 import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
-import ContactForm from "./ContactForm";
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-16 bg-gray-800 text-white text-center">
-      <h2 className="text-4xl font-bold mb-10">Contact Us</h2>
+    <section id="contact" className="py-24 bg-dark-800/50 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-20 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 bg-accent-500/10 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-20">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-dark-50">Contact Us</h2>
+          <p className="text-dark-300 text-lg max-w-2xl mx-auto">
+            Get in touch with our team to discuss your project requirements
+          </p>
+        </div>
 
-      <div className="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-start justify-between gap-12">
-        {/* Left: Contact Info */}
-        <div className="lg:w-2/3 w-full">
-          <div className="flex flex-col space-y-10 text-left">
-            {/* Address */}
-            <div className="flex items-center">
-              <div className="mr-6 text-gray-500 text-3xl">
-                {(FaMapMarkerAlt as any)({ size: 32 })}
+        <div className="flex justify-center">
+          <div className="w-full max-w-4xl">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Address */}
+              <div className="card p-8 rounded-2xl group hover:scale-105 transition-all duration-300">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-primary-600/20 rounded-2xl flex items-center justify-center mr-6 group-hover:bg-primary-600/30 transition-all duration-300">
+                    {(FaMapMarkerAlt as any)({ size: 24, className: "text-primary-400" })}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-dark-50">Address</h3>
+                    <p className="text-dark-300">
+                      Office B44-015, Block B, SRTIP, UAE
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h3 className="text-lg font-semibold">Address</h3>
-                <p className="text-base text-gray-300">
-                  Office B44-015, Block B, SRTIP, UAE
-                </p>
-              </div>
-            </div>
 
-            {/* Email */}
-            <div className="flex items-center">
-              <div className="mr-6 text-gray-500 text-2xl">
-                {(FaEnvelope as any)({ size: 32 })}
+              {/* Email */}
+              <div className="card p-8 rounded-2xl group hover:scale-105 transition-all duration-300">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-primary-600/20 rounded-2xl flex items-center justify-center mr-6 group-hover:bg-primary-300 transition-all duration-300">
+                    {(FaEnvelope as any)({ size: 24, className: "text-primary-400" })}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-dark-50">Email</h3>
+                    <p className="text-dark-300">info@zedexel.com</p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h3 className="text-lg font-semibold">Email</h3>
-                <p className="text-base text-gray-300">info@zedexel.com</p>
-              </div>
-            </div>
 
-            {/* Phone */}
-            <div className="flex items-center">
-              <div className="mr-6 text-gray-500 text-2xl">
-                {(FaPhoneAlt as any)({ size: 32 })}
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold">Phone</h3>
-                <p className="text-base text-gray-300">+971 58 596 6095</p>
+              {/* Phone */}
+              <div className="card p-8 rounded-2xl group hover:scale-105 transition-all duration-300">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-primary-600/20 rounded-2xl flex items-center justify-center mr-6 group-hover:bg-primary-600/30 transition-all duration-300">
+                    {(FaPhoneAlt as any)({ size: 24, className: "text-primary-400" })}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-dark-50">Phone</h3>
+                    <p className="text-dark-300">+971 58 596 6095</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Right: Form */}
-        <div className="lg:w-1/3 w-full">
-          <ContactForm />
         </div>
       </div>
     </section>
