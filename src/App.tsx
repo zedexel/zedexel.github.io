@@ -5,6 +5,7 @@ import Services from "./components/Services";
 import Team from "./components/Team";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ChatBot from "./components/ChatBot";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Team />
       <Contact />
       <Footer />
+      <ChatBot />
     </>
   );
 };
