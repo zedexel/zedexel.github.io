@@ -11,44 +11,6 @@ import {
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import "./ChatBot.css";
 
-const MessageContent: React.FC<{ content: string }> = ({ content }) => {
-  const processContent = (text: string) => {
-    const parts = text.split(/(https?:\/\/[^\s]+)/g);
-    return parts.map((part, index) => {
-      if (part.match(/^https?:\/\//)) {
-        return (
-          <a
-            key={index}
-            href={part}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-2 py-1 mx-1 rounded bg-blue-100 text-blue-600 hover:bg-blue-200 hover:text-blue-700 transition-colors duration-200"
-          >
-            {part}
-            <svg
-              className="w-4 h-4 ml-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </svg>
-          </a>
-        );
-      }
-      return <span key={index}>{part}</span>;
-    });
-  };
-
-  return <div>{processContent(content)}</div>;
-};
-
 interface ChatMessage {
   message: string;
   sender: "user" | "bot";
@@ -318,7 +280,12 @@ const ChatBot: React.FC = () => {
                       msg.sender === "bot" ? "bot-message" : "user-message"
                     }
                   >
-                    <MessageContent content={msg.message} />
+                    <Message.HtmlContent
+                      html={msg.message.replace(
+                        /(https?:\/\/[^\s)]+)/g,
+                        '<a href="$1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-2 py-1 mx-1 rounded bg-blue-100 text-blue-600 hover:bg-blue-200 hover:text-blue-700 transition-colors duration-200">$1 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>'
+                      )}
+                    />
                   </Message>
                 ))}
                 {isTyping && (
