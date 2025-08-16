@@ -9,25 +9,25 @@ const Products: React.FC = () => {
       title: "Multi-Channel Support",
       description:
         "Integrate with WhatsApp, Instagram, and Facebook to provide seamless customer support across all platforms.",
-      eta: "Q3 2024",
+      eta: "Q3 2025",
     },
     {
       title: "Multi-Language Support",
       description:
         "Communicate with your customers in Hindi, Malayalam, and Arabic, expanding your reach to diverse markets.",
-      eta: "Q3 2024",
+      eta: "Q3 2025",
     },
     {
       title: "Advanced Analytics",
       description:
         "Get detailed insights into customer interactions, response times, and conversion rates.",
-      eta: "Q4 2024",
+      eta: "Q4 2025",
     },
     {
       title: "Custom AI Training",
       description:
         "Train the AI with your specific business data for more accurate and personalized responses.",
-      eta: "Q4 2024",
+      eta: "Q4 2025",
     },
   ];
   const zedchatPricingPlans = [
