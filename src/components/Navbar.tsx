@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ReactComponent as Logo } from "../logo.svg";
 
-const sections = ["home", "services", "team", "contact"];
+const sections = ["home", "services", "products", "team", "contact"];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,21 +47,24 @@ const Navbar = () => {
   const getLinkStyles = (link: string) => {
     const base = "cursor-pointer font-semibold";
     const scrolled = isScrolled ? "text-white" : "text-black";
-    const active = activeLink === link ? "opacity-100" : "opacity-50 hover:opacity-100";
+    const active =
+      activeLink === link ? "opacity-100" : "opacity-50 hover:opacity-100";
     return `${base} ${scrolled} ${active} transition-opacity duration-300`;
   };
 
   const getNavStyles = () => {
     return `fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? "py-2 bg-gray-800 text-white" : "py-4 bg-transparent text-black"
+      isScrolled
+        ? "py-2 bg-gray-800 text-white"
+        : "py-4 bg-transparent text-black"
     }`;
   };
 
   const getWhatsappButtonStyles = () => {
     return `flex items-center justify-center overflow-hidden rounded-xl h-10 px-4 text-xs sm:text-sm
       font-bold leading-normal hover:shadow-md hover:shadow-gray-400 ${
-      isScrolled ? "bg-white text-black" : "bg-slate-700 text-white"
-    }`;
+        isScrolled ? "bg-white text-black" : "bg-slate-700 text-white"
+      }`;
   };
 
   const getLogoStyles = () => {
