@@ -44,21 +44,23 @@ const Team = () => {
               <div className="absolute inset-0 geometric-pattern opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
               <div className="relative z-10">
                 {/* Profile Icon - Top on mobile, left on desktop */}
-                <div className="relative mb-6 md:mb-0 md:mr-8 md:float-left">
-                  <img
-                    src={member.photo}
-                    alt={member.name}
-                    className="w-24 md:w-32 lg:w-40 h-24 md:h-32 lg:h-40 rounded-full object-cover border-4 border-white/20 shadow-2xl group-hover:border-white/30 transition-all duration-300 mx-auto md:mx-0"
-                  />
-                  <div className="absolute -bottom-2 -right-2 w-8 md:w-10 lg:w-12 h-8 md:h-10 lg:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg border border-white/10">
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white hover:text-dark-100 transition-colors duration-300"
-                    >
-                      {(FaLinkedin as any)({ size: 14, className: "md:w-4 md:h-4 lg:w-5 lg:h-5" })}
-                    </a>
+                <div className="relative mb-6 md:mb-0 md:mr-8 md:float-left flex justify-center md:justify-start">
+                  <div className="relative">
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      className="w-24 md:w-32 lg:w-40 h-24 md:h-32 lg:h-40 rounded-full object-cover border-4 border-aqua-500/40 shadow-2xl group-hover:border-aqua-500/60 transition-all duration-300 grayscale group-hover:grayscale-0"
+                    />
+                    <div className="absolute -bottom-2 -right-2 w-8 md:w-10 lg:w-12 h-8 md:h-10 lg:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg border border-white/10">
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white hover:text-dark-100 transition-colors duration-300"
+                      >
+                        {(FaLinkedin as any)({ size: 14, className: "md:w-4 md:h-4 lg:w-5 lg:h-5" })}
+                      </a>
+                    </div>
                   </div>
                 </div>
                 
