@@ -19,8 +19,7 @@ const Footer = () => {
       <div className="relative z-10">
         <div className="max-w-4xl mx-auto px-6">
           <div className="mb-6 md:mb-8">
-            <h3 className="text-xl md:text-2xl font-bold text-dark-100 mb-3 md:mb-4">Zedexel</h3>
-            <p className="text-dark-300 max-w-2xl mx-auto mb-4 md:mb-6 text-sm md:text-base px-4">
+            <p className="text-dark-400 max-w-2xl mx-auto mb-4 md:mb-6 text-sm md:text-base px-4">
               Empowering businesses for the AI era
             </p>
             
@@ -51,7 +50,7 @@ const Footer = () => {
           </div>
           
           <div className="border-t border-dark-800/50 pt-6 md:pt-8">
-            <p className="text-dark-400 mb-2 text-sm md:text-base">&copy; 2025 Zedexel. All rights reserved.</p>
+            <p className="text-dark-500 mb-2 text-sm md:text-base">&copy; 2025 Zedexel. All rights reserved.</p>
           </div>
         </div>
       </div>
