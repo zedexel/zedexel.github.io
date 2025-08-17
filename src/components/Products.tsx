@@ -93,7 +93,7 @@ const Products: React.FC = () => {
           {/* ZedChat Product */}
           <ProductCard
             title="ZedChat"
-            description="An AI chatbot customized to your business use case and capture leads from website visitors"
+            description="Stop babysitting your inbox. ZedChat's AI greets your visitors, captures leads and hands you only what matters!"
           >
             <div className="mt-6 md:mt-8">
               <h4 className="text-xl md:text-2xl font-semibold text-dark-50 mb-6 md:mb-8 text-center">
