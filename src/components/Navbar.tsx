@@ -7,12 +7,13 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hasInitialScroll, setHasInitialScroll] = useState(false);
 
   useEffect(() => {
-    // Handle direct hash navigation
+    // Handle direct hash navigation only on initial load
     const handleHashScroll = () => {
       const hash = window.location.hash;
-      if (hash) {
+      if (hash && !hasInitialScroll) {
         const id = hash.replace("#", "");
         const element = document.getElementById(id);
         if (element) {
@@ -26,6 +27,7 @@ const Navbar = () => {
               top: offsetPosition,
               behavior: "smooth",
             });
+            setHasInitialScroll(true);
           }, 100);
         }
       }
@@ -35,36 +37,48 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       
-      // Find which section is currently most visible
-      let currentSection = "home";
-      let maxVisibility = 0;
-      
-      sections.forEach((section) => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const elementTop = rect.top;
-          const elementBottom = rect.bottom;
-          const windowHeight = window.innerHeight;
-          
-          // Calculate how much of the section is visible
-          const visibleTop = Math.max(0, Math.min(elementBottom, windowHeight) - Math.max(elementTop, 0));
-          const visibility = visibleTop / Math.min(element.offsetHeight, windowHeight);
-          
-          if (visibility > maxVisibility && elementTop < windowHeight * 0.5) {
-            maxVisibility = visibility;
-            currentSection = section;
+      // Only update active link if user has scrolled manually
+      if (hasInitialScroll) {
+        // Find which section is currently most visible
+        let currentSection = "home";
+        let maxVisibility = 0;
+        
+        sections.forEach((section) => {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            const elementTop = rect.top;
+            const elementBottom = rect.bottom;
+            const windowHeight = window.innerHeight;
+            
+            // Calculate how much of the section is visible
+            const visibleTop = Math.max(0, Math.min(elementBottom, windowHeight) - Math.max(elementTop, 0));
+            const visibility = visibleTop / Math.min(element.offsetHeight, windowHeight);
+            
+            if (visibility > maxVisibility && elementTop < windowHeight * 0.5) {
+              maxVisibility = visibility;
+              currentSection = section;
+            }
           }
+        });
+        
+        if (activeLink !== currentSection) {
+          setActiveLink(currentSection);
         }
-      });
-      
-      if (activeLink !== currentSection) {
-        setActiveLink(currentSection);
       }
     };
 
-    handleHashScroll(); // Handle hash on initial load
-    window.addEventListener("hashchange", handleHashScroll);
+    // Handle hash changes only when user clicks navigation links
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const id = hash.replace("#", "");
+        setActiveLink(id);
+      }
+    };
+
+    handleHashScroll(); // Handle hash on initial load only
+    window.addEventListener("hashchange", handleHashChange);
 
     window.addEventListener("scroll", handleScroll);
 
@@ -76,7 +90,7 @@ const Navbar = () => {
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && hasInitialScroll) {
           const id = entry.target.getAttribute("id");
           if (id) {
             setActiveLink(id);
@@ -97,13 +111,13 @@ const Navbar = () => {
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("hashchange", handleHashScroll);
+      window.removeEventListener("hashchange", handleHashChange);
       sections.forEach((id) => {
         const el = document.getElementById(id);
         if (el) observer.unobserve(el);
       });
     };
-  }, [activeLink]);
+  }, [activeLink, hasInitialScroll]);
 
   const getLinkStyles = (link: string) => {
     const base = "cursor-pointer font-semibold transition-all duration-300 text-sm md:text-base";
@@ -135,6 +149,7 @@ const Navbar = () => {
   const handleLinkClick = (section: string) => {
     setActiveLink(section);
     setIsMobileMenuOpen(false);
+    setHasInitialScroll(true); // Mark that user has manually navigated
     const element = document.getElementById(section);
     if (element) {
       const navHeight = 80;
