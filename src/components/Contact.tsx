@@ -13,8 +13,8 @@ const Contact = () => {
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-6xl font-bold mb-6 text-dark-50">Contact Us</h2>
-          <p className="text-dark-300 text-lg max-w-2xl mx-auto">
-            Get in touch with our team to discuss your project requirements
+          <p className="text-dark-300 text-xl max-w-2xl mx-auto">
+            Ready to transform your business? Let's talk.
           </p>
         </div>
 

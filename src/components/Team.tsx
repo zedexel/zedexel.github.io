@@ -30,8 +30,8 @@ const Team = () => {
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-dark-50">Meet Our Founders</h2>
-          <p className="text-dark-300 text-lg max-w-2xl mx-auto">
-            The brilliant minds behind Zedexel, driving innovation and excellence
+          <p className="text-dark-300 text-xl max-w-2xl mx-auto">
+            Led by experienced technology leaders with proven track records at top-tier companies
           </p>
         </div>
         
