@@ -11,7 +11,7 @@ const Hero = () => {
       setTimeout(() => {
         setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
         setIsAnimating(false);
-      }, 300);
+      }, 100);
     }, 3000);
 
     return () => clearInterval(interval);
