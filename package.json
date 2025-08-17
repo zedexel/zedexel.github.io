@@ -41,6 +41,8 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-transform-private-property-in-object": "^7.27.1",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@types/validator": "^13.12.3",
