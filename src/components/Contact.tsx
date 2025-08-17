@@ -67,6 +67,23 @@ const Contact = () => {
             </div>
           </div>
         </div>
+
+        {/* WhatsApp Button */}
+        <div className="text-center mt-12 md:mt-16">
+          <a
+            href="https://wa.me/971509156095?text=Hello%20I%20am%20interested%20in%20your%20services"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-aqua-500/20 hover:bg-aqua-500/30 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-base md:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-aqua-500/30"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+              alt="WhatsApp"
+              className="w-5 md:w-6 h-5 md:h-6 mr-2 md:mr-3"
+            />
+            WhatsApp Us Now
+          </a>
+        </div>
       </div>
     </section>
   );
