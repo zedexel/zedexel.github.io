@@ -94,6 +94,7 @@ const Products: React.FC = () => {
           <ProductCard
             title="ZedChat"
             description="AI powered customer support agent 24x7 live on your website, ready to capture leads and summarise conversations directly in your inbox 📥"
+            isBeta={true}
           >
             <div className="mt-6 md:mt-8">
               <h4 className="text-xl md:text-2xl font-semibold text-dark-50 mb-6 md:mb-8 text-center">
