@@ -1,4 +1,5 @@
 import React from "react";
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -12,19 +13,38 @@ const Footer = () => {
         <div className="max-w-4xl mx-auto px-6">
           <div className="mb-8">
             <h3 className="text-2xl font-bold text-dark-100 mb-4">Zedexel</h3>
-            <p className="text-dark-300 max-w-2xl mx-auto">
+            <p className="text-dark-300 max-w-2xl mx-auto mb-6">
               Empowering businesses with innovative software solutions for the digital age
             </p>
+            
+            {/* Social Media Links */}
+            <div className="flex justify-center space-x-6 mb-6">
+              <a
+                href="https://www.linkedin.com/company/zedexel"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-dark-400 hover:text-aqua-400 transition-colors duration-300 group"
+              >
+                <div className="w-12 h-12 bg-dark-800/50 rounded-full flex items-center justify-center group-hover:bg-aqua-500/20 group-hover:scale-110 transition-all duration-300">
+                  {(FaLinkedin as any)({ size: 20, className: "text-dark-300 group-hover:text-aqua-400" })}
+                </div>
+              </a>
+              
+              <a
+                href="https://www.instagram.com/zedexeluae"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-dark-400 hover:text-aqua-400 transition-colors duration-300 group"
+              >
+                <div className="w-12 h-12 bg-dark-800/50 rounded-full flex items-center justify-center group-hover:bg-aqua-500/20 group-hover:scale-110 transition-all duration-300">
+                  {(FaInstagram as any)({ size: 20, className: "text-dark-300 group-hover:text-aqua-400" })}
+                </div>
+              </a>
+            </div>
           </div>
           
           <div className="border-t border-dark-800/50 pt-8">
             <p className="text-dark-400 mb-2">&copy; 2025 Zedexel. All rights reserved.</p>
-            <a
-              className="text-xs text-dark-500 hover:text-dark-400 transition-colors duration-300"
-              href="https://www.vecteezy.com/free-vector/background"
-            >
-              Background Vectors by Vecteezy
-            </a>
           </div>
         </div>
       </div>

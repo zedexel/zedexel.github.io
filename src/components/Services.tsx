@@ -1,4 +1,3 @@
-import Clients from "./Clients";
 import ServiceCard from "./ServiceCard";
 import { 
   AiOutlineAppstore,
@@ -13,12 +12,13 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="py-24 px-6 bg-dark-900/50 text-center relative overflow-hidden"
+      className="pt-24 pb-8 px-6 bg-dark-900/50 text-center relative overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 bg-accent-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full line-pattern opacity-20"></div>
       </div>
       
       <div className="relative z-10 max-w-6xl mx-auto mb-20">
@@ -75,8 +75,6 @@ const Services = () => {
             transparency, and real-time insights tailored to your enterprise needs."
         />
       </div>
-
-      <Clients />
     </section>
   );
 };

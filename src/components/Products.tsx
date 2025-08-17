@@ -2,6 +2,7 @@ import React from "react";
 import ProductCard from "./ProductCard";
 import PricingCard from "./PricingCard";
 import UpcomingFeatures from "./UpcomingFeatures";
+import Clients from "./Clients";
 
 const Products: React.FC = () => {
   const upcomingFeatures = [
@@ -72,8 +73,9 @@ const Products: React.FC = () => {
     <section id="products" className="py-24 bg-dark-800/30 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 right-20 w-64 h-64 bg-primary-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-64 h-64 bg-accent-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 right-1/3 w-96 h-96 geometric-pattern rounded-full opacity-15"></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -94,7 +96,7 @@ const Products: React.FC = () => {
             description="An AI chatbot customized to your business use case and capture leads from website visitors"
           >
             <div className="mt-8">
-              <h4 className="text-2xl font-semibold text-gray-800 mb-8 text-center">
+              <h4 className="text-2xl font-semibold text-dark-50 mb-8 text-center">
                 Pricing Plans
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -120,6 +122,9 @@ const Products: React.FC = () => {
             isComingSoon={true}
           />
         </div>
+        
+        {/* Clients Section */}
+        <Clients />
       </div>
     </section>
   );

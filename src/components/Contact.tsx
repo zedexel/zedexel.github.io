@@ -5,8 +5,9 @@ const Contact = () => {
     <section id="contact" className="py-24 bg-dark-800/50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 bg-accent-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 right-1/3 w-96 h-96 dot-pattern rounded-full opacity-20"></div>
       </div>
       
       <div className="max-w-6xl mx-auto px-6 relative z-10">
@@ -21,13 +22,14 @@ const Contact = () => {
           <div className="w-full max-w-4xl">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Address */}
-              <div className="card p-8 rounded-2xl group hover:scale-105 transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-primary-600/20 rounded-2xl flex items-center justify-center mr-6 group-hover:bg-primary-600/30 transition-all duration-300">
-                    {(FaMapMarkerAlt as any)({ size: 24, className: "text-primary-400" })}
+              <div className="elevated-card p-8 rounded-2xl group hover:scale-105 transition-all duration-300 relative overflow-hidden">
+                <div className="absolute inset-0 line-pattern opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
+                <div className="relative z-10">
+                  <div className="w-20 h-20 bg-aqua-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-aqua-500/30 transition-all duration-300">
+                    {(FaMapMarkerAlt as any)({ size: 32, className: "text-aqua-400" })}
                   </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-dark-50">Address</h3>
+                  <div className="text-center">
+                    <h3 className="text-xl font-semibold text-dark-50 mb-3">Address</h3>
                     <p className="text-dark-300">
                       Office B44-015, Block B, SRTIP, UAE
                     </p>
@@ -36,26 +38,28 @@ const Contact = () => {
               </div>
 
               {/* Email */}
-              <div className="card p-8 rounded-2xl group hover:scale-105 transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-primary-600/20 rounded-2xl flex items-center justify-center mr-6 group-hover:bg-primary-300 transition-all duration-300">
-                    {(FaEnvelope as any)({ size: 24, className: "text-primary-400" })}
+              <div className="elevated-card p-8 rounded-2xl group hover:scale-105 transition-all duration-300 relative overflow-hidden">
+                <div className="absolute inset-0 line-pattern opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
+                <div className="relative z-10">
+                  <div className="w-20 h-20 bg-aqua-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-aqua-500/30 transition-all duration-300">
+                    {(FaEnvelope as any)({ size: 32, className: "text-aqua-400" })}
                   </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-dark-50">Email</h3>
+                  <div className="text-center">
+                    <h3 className="text-xl font-semibold text-dark-50 mb-3">Email</h3>
                     <p className="text-dark-300">info@zedexel.com</p>
                   </div>
                 </div>
               </div>
 
               {/* Phone */}
-              <div className="card p-8 rounded-2xl group hover:scale-105 transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-primary-600/20 rounded-2xl flex items-center justify-center mr-6 group-hover:bg-primary-600/30 transition-all duration-300">
-                    {(FaPhoneAlt as any)({ size: 24, className: "text-primary-400" })}
+              <div className="elevated-card p-8 rounded-2xl group hover:scale-105 transition-all duration-300 relative overflow-hidden">
+                <div className="absolute inset-0 line-pattern opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
+                <div className="relative z-10">
+                  <div className="w-20 h-20 bg-aqua-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-aqua-500/30 transition-all duration-300">
+                    {(FaPhoneAlt as any)({ size: 32, className: "text-aqua-400" })}
                   </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-dark-50">Phone</h3>
+                  <div className="text-center">
+                    <h3 className="text-xl font-semibold text-dark-50 mb-3">Phone</h3>
                     <p className="text-dark-300">+971 58 596 6095</p>
                   </div>
                 </div>

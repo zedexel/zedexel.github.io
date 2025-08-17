@@ -24,23 +24,24 @@ const Hero = () => {
     >
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary-500/20 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute inset-0 dot-pattern opacity-20"></div>
       </div>
       
       <div className="relative z-10 container mx-auto max-w-5xl px-6">
         <div className="mb-8">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight text-dark-50">
             <span className="inline-block min-w-[280px]">
-              <span
-                className={`inline-block text-primary-400 transition-all duration-500 ease-in-out ${
-                  isAnimating
-                    ? "opacity-0 transform translate-y-2 scale-95"
-                    : "opacity-100 transform translate-y-0 scale-100"
-                }`}
-              >
-                {words[currentWordIndex]}
-              </span>
+                        <span
+            className={`inline-block aqua-glow transition-all duration-500 ease-in-out ${
+              isAnimating
+                ? "opacity-0 transform translate-y-2 scale-95"
+                : "opacity-100 transform translate-y-0 scale-100"
+            }`}
+          >
+            {words[currentWordIndex]}
+          </span>
             </span>{" "}
             your business
           </h1>
@@ -53,14 +54,14 @@ const Hero = () => {
           We help businesses optimize and scale their operations with custom software solutions
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
           <a href="#services">
-            <button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+            <button className="aqua-button px-8 py-4 text-lg">
               Explore Services
             </button>
           </a>
           <a href="#contact">
-            <button className="glass-effect text-dark-100 hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 border-primary-500/30 hover:border-primary-400/50">
+            <button className="aqua-border bg-transparent text-dark-100 hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:bg-white/5 aqua-border-hover">
               Get Started
             </button>
           </a>

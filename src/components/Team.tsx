@@ -22,13 +22,14 @@ const Team = () => {
     <section id="team" className="py-24 bg-dark-900/50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 right-20 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-64 h-64 bg-accent-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full line-pattern opacity-15"></div>
       </div>
       
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-dark-50">Meet Our Founders</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-dark-50">Meet Our Founders</h2>
           <p className="text-dark-300 text-lg max-w-2xl mx-auto">
             The brilliant minds behind Zedexel, driving innovation and excellence
           </p>
@@ -38,29 +39,36 @@ const Team = () => {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="card p-10 rounded-2xl flex flex-col items-center text-center group hover:scale-105 transition-all duration-500"
+              className="elevated-card p-10 rounded-2xl flex flex-col items-center text-center group hover:scale-105 transition-all duration-500 relative overflow-hidden"
             >
-              <div className="relative mb-8">
-                <img
-                  src={member.photo}
-                  alt={member.name}
-                  className="w-40 h-40 rounded-full object-cover border-4 border-primary-500/30 shadow-2xl group-hover:border-primary-400/50 transition-all duration-300"
-                />
-                <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center shadow-lg">
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white hover:text-primary-200 transition-colors duration-300"
-                  >
-                    {(FaLinkedin as any)({ size: 20 })}
-                  </a>
+              <div className="absolute inset-0 geometric-pattern opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
+              <div className="relative z-10">
+                {/* Profile Icon - Top on mobile, left on desktop */}
+                <div className="relative mb-6 md:mb-0 md:mr-8 md:float-left">
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-white/20 shadow-2xl group-hover:border-white/30 transition-all duration-300 mx-auto md:mx-0"
+                  />
+                  <div className="absolute -bottom-2 -right-2 w-10 h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg border border-white/10">
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-dark-100 transition-colors duration-300"
+                    >
+                      {(FaLinkedin as any)({ size: 16, className: "md:w-5 md:h-5" })}
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Content - Below icon on mobile, to the right on desktop */}
+                <div className="text-center md:text-left md:overflow-hidden">
+                  <h3 className="text-xl md:text-2xl font-bold text-dark-50 mb-3 group-hover:aqua-glow transition-all duration-300">{member.name}</h3>
+                  <p className="text-aqua-400 font-semibold mb-4">{member.role}</p>
+                  <p className="text-dark-300 leading-relaxed text-sm md:text-base">{member.description}</p>
                 </div>
               </div>
-              
-              <h3 className="text-2xl font-bold text-dark-50 mb-3 group-hover:text-primary-400 transition-colors duration-300">{member.name}</h3>
-              <p className="text-primary-400 font-semibold mb-4">{member.role}</p>
-              <p className="text-dark-300 leading-relaxed">{member.description}</p>
             </div>
           ))}
         </div>

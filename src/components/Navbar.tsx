@@ -31,9 +31,36 @@ const Navbar = () => {
       }
     };
 
-    // Handle scroll for navbar background
+    // Handle scroll for navbar background and section highlighting
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Find which section is currently most visible
+      let currentSection = "home";
+      let maxVisibility = 0;
+      
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const elementTop = rect.top;
+          const elementBottom = rect.bottom;
+          const windowHeight = window.innerHeight;
+          
+          // Calculate how much of the section is visible
+          const visibleTop = Math.max(0, Math.min(elementBottom, windowHeight) - Math.max(elementTop, 0));
+          const visibility = visibleTop / Math.min(element.offsetHeight, windowHeight);
+          
+          if (visibility > maxVisibility && elementTop < windowHeight * 0.5) {
+            maxVisibility = visibility;
+            currentSection = section;
+          }
+        }
+      });
+      
+      if (activeLink !== currentSection) {
+        setActiveLink(currentSection);
+      }
     };
 
     handleHashScroll(); // Handle hash on initial load
@@ -43,23 +70,29 @@ const Navbar = () => {
 
     const observerOptions = {
       root: null,
-      rootMargin: "0px",
-      threshold: 0.6, // Adjust this to control when a section is considered active
+      rootMargin: "-20% 0px -20% 0px", // Adjust margins to trigger earlier
+      threshold: 0.3, // Lower threshold for better detection
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute("id");
-          if (id) setActiveLink(id);
+          if (id) {
+            setActiveLink(id);
+          }
         }
       });
     }, observerOptions);
 
-    // Observe each section
+    // Observe each section with better error handling
     sections.forEach((id) => {
       const el = document.getElementById(id);
-      if (el) observer.observe(el);
+      if (el) {
+        observer.observe(el);
+      } else {
+        console.warn("Section not found:", id); // Debug log
+      }
     });
 
     return () => {
@@ -70,13 +103,13 @@ const Navbar = () => {
         if (el) observer.unobserve(el);
       });
     };
-  }, []);
+  }, [activeLink]);
 
   const getLinkStyles = (link: string) => {
     const base = "cursor-pointer font-semibold transition-all duration-300";
-    const scrolled = isScrolled ? "text-dark-100" : "text-dark-100";
+    const scrolled = isScrolled ? "text-white" : "text-white";
     const active =
-      activeLink === link ? "text-primary-400" : "text-dark-300 hover:text-primary-400";
+      activeLink === link ? "text-aqua-400" : "text-white/70 hover:text-aqua-400";
     return `${base} ${scrolled} ${active}`;
   };
 
@@ -91,12 +124,12 @@ const Navbar = () => {
   const getWhatsappButtonStyles = () => {
     return `flex items-center justify-center overflow-hidden rounded-xl h-10 px-4 text-xs sm:text-sm
       font-bold leading-normal transition-all duration-300 hover:scale-105 ${
-        isScrolled ? "bg-primary-600 text-white hover:bg-primary-700" : "bg-primary-600 text-white hover:bg-primary-700"
+        isScrolled ? "bg-aqua-600 text-white hover:bg-aqua-700" : "bg-aqua-600 text-white hover:bg-aqua-700"
       }`;
   };
 
   const getLogoStyles = () => {
-    return `h-4 w-auto ${isScrolled ? "fill-primary-400" : "fill-primary-400"}`;
+    return `h-4 w-auto ${isScrolled ? "fill-white" : "fill-white"}`;
   };
 
   const handleLinkClick = (section: string) => {
@@ -191,7 +224,7 @@ const Navbar = () => {
       <div
         className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 ease-in-out ${
           isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-        } overflow-hidden glass-effect`}
+        } overflow-hidden bg-white/5 backdrop-blur-md border border-white/10`}
       >
         <ul className="px-4 py-2">
           {sections.map((section) => (
