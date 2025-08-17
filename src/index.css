@@ -108,4 +108,18 @@
   .aqua-button:hover {
     box-shadow: 0 20px 40px -10px rgba(6, 182, 212, 0.4);
   }
+  
+  /* Custom slower marquee animation */
+  @keyframes marquee-slow {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-marquee-slow {
+    animation: marquee-slow 60s linear infinite;
+  }
 }

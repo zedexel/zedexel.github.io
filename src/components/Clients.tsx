@@ -28,7 +28,7 @@ const Clients = () => {
           Brands That Trust Us
         </h3>
         <div className="overflow-hidden relative group">
-          <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
+          <div className="flex w-max animate-marquee-slow group-hover:[animation-play-state:paused]">
             {repeatedLogos.map((logo, index) => (
               <div key={index} className="flex-shrink-0 mx-8">
                 <a
@@ -40,8 +40,8 @@ const Clients = () => {
                   <img
                     src={logo.src}
                     alt={`Client ${index + 1}`}
-                    className={`h-16 w-auto max-w-[140px] object-contain opacity-60 hover:opacity-100 transition-all duration-300 hover:scale-110 ${
-                      logo.invert ? "invert brightness-0" : "brightness-0 invert"
+                    className={`h-16 w-auto max-w-[140px] object-contain opacity-60 hover:opacity-100 transition-all duration-300 ${
+                      logo.invert ? "invert brightness-0" : ""
                     }`}
                   />
                 </a>
