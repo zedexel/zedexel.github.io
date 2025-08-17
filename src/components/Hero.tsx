@@ -48,6 +48,11 @@ const Hero = () => {
                       ? "opacity-0 transform translate-y-2 scale-95"
                       : "opacity-100 transform translate-y-0 scale-100"
                   }`}
+                  style={{
+                    textShadow: isAnimating 
+                      ? '0 0 0px rgba(0, 255, 255, 0)' 
+                      : '0 0 12px rgba(0, 255, 255, 0.6), 0 0 24px rgba(0, 255, 255, 0.3)'
+                  }}
                 >
                   {words[currentWordIndex]}
                 </span>
