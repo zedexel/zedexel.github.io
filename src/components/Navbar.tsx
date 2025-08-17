@@ -7,12 +7,13 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hasInitialScroll, setHasInitialScroll] = useState(false);
 
   useEffect(() => {
-    // Handle direct hash navigation
+    // Handle direct hash navigation only on initial load
     const handleHashScroll = () => {
       const hash = window.location.hash;
-      if (hash) {
+      if (hash && !hasInitialScroll) {
         const id = hash.replace("#", "");
         const element = document.getElementById(id);
         if (element) {
@@ -26,82 +27,129 @@ const Navbar = () => {
               top: offsetPosition,
               behavior: "smooth",
             });
+            setHasInitialScroll(true);
           }, 100);
         }
       }
     };
 
-    // Handle scroll for navbar background
+    // Handle scroll for navbar background and section highlighting
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Only update active link if user has scrolled manually
+      if (hasInitialScroll) {
+        // Find which section is currently most visible
+        let currentSection = "home";
+        let maxVisibility = 0;
+        
+        sections.forEach((section) => {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            const elementTop = rect.top;
+            const elementBottom = rect.bottom;
+            const windowHeight = window.innerHeight;
+            
+            // Calculate how much of the section is visible
+            const visibleTop = Math.max(0, Math.min(elementBottom, windowHeight) - Math.max(elementTop, 0));
+            const visibility = visibleTop / Math.min(element.offsetHeight, windowHeight);
+            
+            if (visibility > maxVisibility && elementTop < windowHeight * 0.5) {
+              maxVisibility = visibility;
+              currentSection = section;
+            }
+          }
+        });
+        
+        if (activeLink !== currentSection) {
+          setActiveLink(currentSection);
+        }
+      }
     };
 
-    handleHashScroll(); // Handle hash on initial load
-    window.addEventListener("hashchange", handleHashScroll);
+    // Handle hash changes only when user clicks navigation links
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const id = hash.replace("#", "");
+        setActiveLink(id);
+      }
+    };
+
+    handleHashScroll(); // Handle hash on initial load only
+    window.addEventListener("hashchange", handleHashChange);
 
     window.addEventListener("scroll", handleScroll);
 
     const observerOptions = {
       root: null,
-      rootMargin: "0px",
-      threshold: 0.2, // Lower threshold for better section detection
+      rootMargin: "-20% 0px -20% 0px", // Adjust margins to trigger earlier
+      threshold: 0.3, // Lower threshold for better detection
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && hasInitialScroll) {
           const id = entry.target.getAttribute("id");
-          if (id) setActiveLink(id);
+          if (id) {
+            setActiveLink(id);
+          }
         }
       });
     }, observerOptions);
 
-    // Observe each section
+    // Observe each section with better error handling
     sections.forEach((id) => {
       const el = document.getElementById(id);
-      if (el) observer.observe(el);
+      if (el) {
+        observer.observe(el);
+      } else {
+        console.warn("Section not found:", id); // Debug log
+      }
     });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("hashchange", handleHashScroll);
+      window.removeEventListener("hashchange", handleHashChange);
       sections.forEach((id) => {
         const el = document.getElementById(id);
         if (el) observer.unobserve(el);
       });
     };
-  }, []);
+  }, [activeLink, hasInitialScroll]);
 
   const getLinkStyles = (link: string) => {
-    const base = "cursor-pointer font-semibold";
-    const scrolled = isScrolled ? "text-white" : "text-black";
+    const base = "cursor-pointer font-semibold transition-all duration-300 text-sm md:text-base";
+    const scrolled = isScrolled ? "text-white" : "text-white";
     const active =
-      activeLink === link ? "opacity-100" : "opacity-50 hover:opacity-100";
-    return `${base} ${scrolled} ${active} transition-opacity duration-300`;
+      activeLink === link ? "text-aqua-400" : "text-white/70 hover:text-aqua-400";
+    return `${base} ${scrolled} ${active}`;
   };
 
   const getNavStyles = () => {
     return `fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
       isScrolled
-        ? "py-2 bg-gray-800 text-white"
-        : "py-4 bg-transparent text-black"
+        ? "py-2 md:py-3 glass-effect backdrop-blur-md"
+        : "py-3 md:py-4 bg-transparent"
     }`;
   };
 
   const getWhatsappButtonStyles = () => {
-    return `flex items-center justify-center overflow-hidden rounded-xl h-10 px-4 text-xs sm:text-sm
-      font-bold leading-normal hover:shadow-md hover:shadow-gray-400 ${
-        isScrolled ? "bg-white text-black" : "bg-slate-700 text-white"
+    return `flex items-center justify-center overflow-hidden rounded-xl h-8 md:h-10 px-3 md:px-4 text-xs md:text-sm
+      font-bold leading-normal transition-all duration-300 hover:scale-105 ${
+        isScrolled ? "bg-aqua-600 text-white hover:bg-aqua-700" : "bg-aqua-600 text-white hover:bg-aqua-700"
       }`;
   };
 
   const getLogoStyles = () => {
-    return `h-4 w-auto ${isScrolled ? "fill-white" : "fill-black"}`;
+    return `h-3 md:h-4 w-auto ${isScrolled ? "fill-white" : "fill-white"}`;
   };
 
   const handleLinkClick = (section: string) => {
     setActiveLink(section);
     setIsMobileMenuOpen(false);
+    setHasInitialScroll(true); // Mark that user has manually navigated
     const element = document.getElementById(section);
     if (element) {
       const navHeight = 80;
@@ -119,11 +167,11 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center px-4">
         <a href="#home" className="flex items-center space-x-2">
           <Logo className={getLogoStyles()} />
-          <h1 className="text-xl font-bold font-logo">Zedexel</h1>
+          <h1 className="text-lg md:text-xl font-bold font-logo">Zedexel</h1>
         </a>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-10">
+        <ul className="hidden md:flex space-x-8 lg:space-x-10">
           {sections.map((section) => (
             <li key={section}>
               <a
@@ -142,11 +190,11 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+          className="md:hidden p-2 rounded-lg hover:bg-dark-800/50 transition-colors duration-300"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <svg
-            className={`w-6 h-6 ${isScrolled ? "text-white" : "text-black"}`}
+            className="w-5 md:w-6 h-5 md:h-6 text-dark-100"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -180,9 +228,9 @@ const Navbar = () => {
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
               alt="WhatsApp"
-              className="w-4 h-4 mr-2 sm:w-5 sm:h-5"
+              className="w-3 md:w-4 lg:w-5 h-3 md:h-4 lg:h-5 mr-2"
             />
-            <span>Get In Touch</span>
+            <span className="text-xs md:text-sm">Get In Touch</span>
           </button>
         </a>
       </div>
@@ -191,7 +239,11 @@ const Navbar = () => {
       <div
         className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 ease-in-out ${
           isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-        } overflow-hidden ${isScrolled ? "bg-gray-800" : "bg-white"}`}
+        } overflow-hidden ${
+          isScrolled 
+            ? "bg-dark-900/95 backdrop-blur-xl border border-white/20" 
+            : "bg-dark-900/90 backdrop-blur-lg border border-white/10"
+        }`}
       >
         <ul className="px-4 py-2">
           {sections.map((section) => (
@@ -221,9 +273,9 @@ const Navbar = () => {
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
                   alt="WhatsApp"
-                  className="w-4 h-4 mr-2"
+                  className="w-3 md:w-4 h-3 md:h-4 mr-2"
                 />
-                <span>Get In Touch</span>
+                <span className="text-xs md:text-sm">Get In Touch</span>
               </button>
             </a>
           </li>

@@ -8,12 +8,15 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, description }) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-      <div className="w-12 h-12 mx-auto mb-4 text-gray-900">
-        {(Icon as any)({ size: 48 })}
+    <div className="elevated-card p-6 md:p-8 hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+      <div className="absolute inset-0 dot-pattern opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
+      <div className="relative z-10">
+        <div className="w-12 md:w-16 h-12 md:h-16 mx-auto mb-4 md:mb-6 text-white group-hover:text-aqua-400 transition-colors duration-300">
+          {(Icon as any)({ size: 48, className: "md:w-16 md:h-16" })}
+        </div>
+        <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-dark-50 mb-3 md:mb-4 group-hover:aqua-glow transition-all duration-300">{title}</h3>
+        <p className="text-dark-300 leading-relaxed text-sm md:text-base">{description}</p>
       </div>
-      <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-      <p className="text-gray-700">{description}</p>
     </div>
   );
 };

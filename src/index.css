@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,14 +10,116 @@
   }
 
   body {
-    @apply font-body antialiased;
+    @apply font-body antialiased bg-dark-950 text-dark-100;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    @apply font-heading text-dark-50;
   }
 
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  }
+}
+
+@layer components {
+  .gradient-bg {
+    background: linear-gradient(135deg, #0a0a0a 0%, #171717 50%, #262626 100%);
+  }
+  
+  .card {
+    @apply bg-dark-900/30 backdrop-blur-sm border border-dark-800/30 rounded-xl shadow-xl;
+  }
+  
+  .glass-effect {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+  
+  .geometric-pattern {
+    background-image: 
+      linear-gradient(45deg, #262626 25%, transparent 25%),
+      linear-gradient(-45deg, #262626 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #262626 75%),
+      linear-gradient(-45deg, transparent 75%, #262626 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    opacity: 0.03;
+  }
+  
+  .dot-pattern {
+    background-image: radial-gradient(circle, #404040 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.1;
+  }
+  
+  .line-pattern {
+    background-image: 
+      linear-gradient(90deg, transparent 98%, #404040 98%),
+      linear-gradient(0deg, transparent 98%, #404040 98%);
+    background-size: 40px 40px;
+    opacity: 0.05;
+  }
+  
+  .brand-accent {
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #e5e5e5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .aqua-glow {
+    background: linear-gradient(135deg, #06b6d4 0%, #22d3ee 50%, #67e8f9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .aqua-border {
+    border: 1px solid rgba(6, 182, 212, 0.2);
+  }
+  
+  .aqua-border-hover:hover {
+    border-color: rgba(6, 182, 212, 0.4);
+  }
+  
+  .subtle-border {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .elevated-card {
+    @apply bg-dark-900/40 backdrop-blur-md border border-dark-800/40 rounded-2xl shadow-2xl;
+    box-shadow: 
+      0 25px 50px -12px rgba(0, 0, 0, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+  
+  .aqua-card {
+    @apply bg-dark-900/40 backdrop-blur-md border border-aqua-500/20 rounded-2xl shadow-2xl;
+    box-shadow: 
+      0 25px 50px -12px rgba(0, 0, 0, 0.25),
+      0 0 0 1px rgba(6, 182, 212, 0.1);
+  }
+  
+  .aqua-button {
+    @apply bg-aqua-500 hover:bg-aqua-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+    box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.3);
+  }
+  
+  .aqua-button:hover {
+    box-shadow: 0 20px 40px -10px rgba(6, 182, 212, 0.4);
+  }
+  
+  /* Custom slower marquee animation */
+  @keyframes marquee-slow {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-marquee-slow {
+    animation: marquee-slow 60s linear infinite;
   }
 }
