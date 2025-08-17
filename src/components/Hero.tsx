@@ -39,7 +39,7 @@ const Hero = () => {
       
       <div className="relative z-10 container mx-auto max-w-5xl px-6">
         <div className="mb-6 md:mb-8">
-          <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight tracking-tight text-dark-50">
+          <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight tracking-tight text-dark-50">
             <div className="block md:inline">
               <span className="inline-block min-w-[200px] md:min-w-[280px]">
                 <span
@@ -57,12 +57,12 @@ const Hero = () => {
               {" "}your business
             </div>
           </h1>
-          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-dark-100 mb-3 md:mb-4">
+          <h2 className="text-xl md:text-3xl lg:text-5xl font-bold text-dark-100 mb-3 md:mb-4">
             with Zedexel
           </h2>
         </div>
         
-        <p className="text-base md:text-lg lg:text-xl text-dark-300 mb-8 md:mb-12 leading-relaxed font-light max-w-3xl mx-auto px-4">
+        <p className="text-base md:text-lg lg:text-xl text-dark-300 mb-8 md:mb-12 leading-relaxed font-light max-w-2xl mx-auto px-4">
           We help businesses optimize and scale their operations with custom software solutions
         </p>
         
