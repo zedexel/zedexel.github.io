@@ -7,6 +7,13 @@ const Footer = () => {
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl"></div>
+        
+        {/* Full-size Zedexel background text */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <span className="text-[20vw] md:text-[15vw] lg:text-[12vw] font-black text-dark-900/20 select-none leading-none">
+            ZEDEXEL
+          </span>
+        </div>
       </div>
       
       <div className="relative z-10">
