@@ -24,9 +24,17 @@ const Hero = () => {
     >
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
+        {/* Hero Background SVG */}
+        <div className="absolute inset-0">
+          <img
+            src="/hero-bg.svg"
+            alt=""
+            className="w-full h-full object-cover opacity-10"
+          />
+        </div>
+        
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute inset-0 dot-pattern opacity-20"></div>
       </div>
       
       <div className="relative z-10 container mx-auto max-w-5xl px-6">
