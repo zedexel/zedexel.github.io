@@ -24,10 +24,9 @@ const Services = () => {
       <div className="relative z-10 max-w-6xl mx-auto mb-12 md:mb-20">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-8 text-dark-50">Our Services</h2>
         <p className="text-base md:text-xl text-dark-300 leading-relaxed font-medium max-w-4xl mx-auto px-4">
-          At Zedexel, we specialize in crafting custom software solutions 
-          that empower your business to thrive in a digital world. Our team of seasoned experts 
-          leverages cutting-edge technologies to deliver innovative, scalable, and reliable systems 
-          tailored to your unique needs. From concept to deployment, we are with you every step of the way.
+          At Zedexel, we build custom software solutions that make your business AI-ready and future-proof. 
+          Our team of seasoned experts leverages cutting-edge technologies to deliver innovative, scalable and reliable systems 
+          tailored to your unique needs. From concept to deployment, we are with you every step of the way
         </p>
       </div>
 

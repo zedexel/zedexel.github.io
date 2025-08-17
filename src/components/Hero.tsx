@@ -63,7 +63,7 @@ const Hero = () => {
         </div>
         
         <p className="text-base md:text-lg lg:text-xl text-dark-300 mb-8 md:mb-12 leading-relaxed font-light max-w-2xl mx-auto px-4">
-          We help businesses optimize and scale their operations with custom software solutions
+          We help businesses optimize and scale with AI-powered custom software solutions
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center px-4">

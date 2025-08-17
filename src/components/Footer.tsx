@@ -21,7 +21,7 @@ const Footer = () => {
           <div className="mb-6 md:mb-8">
             <h3 className="text-xl md:text-2xl font-bold text-dark-100 mb-3 md:mb-4">Zedexel</h3>
             <p className="text-dark-300 max-w-2xl mx-auto mb-4 md:mb-6 text-sm md:text-base px-4">
-              Empowering businesses with innovative software solutions for the digital age
+              Empowering businesses for the AI era
             </p>
             
             {/* Social Media Links */}
