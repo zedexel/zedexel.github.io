@@ -83,7 +83,7 @@ const Products: React.FC = () => {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-dark-50 mb-4 md:mb-6">
             Our Products
           </h2>
-          <p className="text-dark-300 max-w-3xl mx-auto text-base md:text-lg px-4">
+          <p className="text-base md:text-xl text-dark-300 leading-relaxed font-medium max-w-4xl mx-auto px-4">
             Discover our innovative solutions designed to enhance your business
             operations
           </p>

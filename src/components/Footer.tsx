@@ -10,7 +10,7 @@ const Footer = () => {
         
         {/* Full-size Zedexel background text */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <span className="text-[16vw] md:text-[15vw] lg:text-[12vw] font-black text-dark-900/20 select-none leading-none">
+          <span className="text-[16vw] md:text-[15vw] lg:text-[12vw] font-black text-dark-900/50 select-none leading-none">
             ZEDEXEL
           </span>
         </div>
