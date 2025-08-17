@@ -28,7 +28,9 @@ const ChatBot: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
-  const [isDisconnected, setIsDisconnected] = useState(false);
+  const [connectionStatus, setConnectionStatus] = useState<
+    "disconnected" | "connected"
+  >("connected");
   const wsRef = useRef<WebSocket | null>(null);
   const currentExecutionId = useRef<string | null>(null);
   const sessionId = useRef<string>(Math.random().toString(36).substring(7));
@@ -56,11 +58,15 @@ const ChatBot: React.FC = () => {
 
     ws.onopen = () => {
       console.log("WebSocket connection established");
+      setConnectionStatus("connected");
     };
 
     ws.onmessage = (event) => {
-      // Ignore heartbeat messages
-      if (event.data === "n8n|heartbeat") {
+      // Skip system messages
+      if (event.data.startsWith("n8n|")) {
+        if (event.data === "n8n|heartbeat") {
+          ws.send("n8n|heartbeat-ack");
+        }
         return;
       }
 
@@ -98,7 +104,7 @@ const ChatBot: React.FC = () => {
     ws.onclose = () => {
       console.log("WebSocket connection closed");
       setIsTyping(false);
-      setIsDisconnected(true);
+      setConnectionStatus("disconnected");
       const disconnectMessage: ChatMessage = {
         message:
           "Disconnected from chat. Please send a new message to reconnect.",
@@ -112,7 +118,6 @@ const ChatBot: React.FC = () => {
   };
 
   const sendMessage = async (message: string) => {
-    setIsDisconnected(false);
     // Add user message to chat
     const userMessage: ChatMessage = {
       message,
@@ -226,11 +231,26 @@ const ChatBot: React.FC = () => {
                       <span className="font-heading text-lg">
                         Zedexel Assistant
                       </span>
-                      {isDisconnected && (
-                        <span className="text-xs text-red-500">
-                          Disconnected
+                      <div className="flex items-center">
+                        <div
+                          className={`w-2 h-2 rounded-full mr-1 ${
+                            connectionStatus === "connected"
+                              ? "bg-green-500"
+                              : "bg-red-500"
+                          }`}
+                        />
+                        <span
+                          className={`text-xs ${
+                            connectionStatus === "connected"
+                              ? "text-green-500"
+                              : "text-red-500"
+                          }`}
+                        >
+                          {connectionStatus === "connected"
+                            ? "Online"
+                            : "Offline"}
                         </span>
-                      )}
+                      </div>
                     </div>
                   </div>
                 </ConversationHeader.Content>
