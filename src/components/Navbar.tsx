@@ -239,7 +239,11 @@ const Navbar = () => {
       <div
         className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 ease-in-out ${
           isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-        } overflow-hidden bg-white/5 backdrop-blur-md border border-white/10`}
+        } overflow-hidden ${
+          isScrolled 
+            ? "bg-dark-900/95 backdrop-blur-xl border border-white/20" 
+            : "bg-dark-900/90 backdrop-blur-lg border border-white/10"
+        }`}
       >
         <ul className="px-4 py-2">
           {sections.map((section) => (
