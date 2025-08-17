@@ -44,7 +44,7 @@ const Navbar = () => {
     const observerOptions = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.6, // Adjust this to control when a section is considered active
+      threshold: 0.2, // Lower threshold for better section detection
     };
 
     const observer = new IntersectionObserver((entries) => {
