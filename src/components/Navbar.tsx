@@ -28,6 +28,7 @@ const Navbar = () => {
               behavior: "smooth",
             });
             setHasInitialScroll(true);
+            setActiveLink(id);
           }, 100);
         }
       }
@@ -37,34 +38,31 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       
-      // Only update active link if user has scrolled manually
-      if (hasInitialScroll) {
-        // Find which section is currently most visible
-        let currentSection = "home";
-        let maxVisibility = 0;
-        
-        sections.forEach((section) => {
-          const element = document.getElementById(section);
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            const elementTop = rect.top;
-            const elementBottom = rect.bottom;
-            const windowHeight = window.innerHeight;
-            
-            // Calculate how much of the section is visible
-            const visibleTop = Math.max(0, Math.min(elementBottom, windowHeight) - Math.max(elementTop, 0));
-            const visibility = visibleTop / Math.min(element.offsetHeight, windowHeight);
-            
-            if (visibility > maxVisibility && elementTop < windowHeight * 0.5) {
-              maxVisibility = visibility;
-              currentSection = section;
-            }
+      // Always update active link based on scroll position
+      const navHeight = 100; // Navbar height + some offset
+      let currentSection = "home";
+      
+      // Check each section to see which one is currently in view
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // If the section top is above the navbar (accounting for navbar height)
+          if (rect.top <= navHeight) {
+            currentSection = section;
+            break;
           }
-        });
-        
-        if (activeLink !== currentSection) {
-          setActiveLink(currentSection);
         }
+      }
+      
+      // Special case: if we're at the very top, always show "home"
+      if (window.scrollY < 100) {
+        currentSection = "home";
+      }
+      
+      if (activeLink !== currentSection) {
+        setActiveLink(currentSection);
       }
     };
 
@@ -79,43 +77,14 @@ const Navbar = () => {
 
     handleHashScroll(); // Handle hash on initial load only
     window.addEventListener("hashchange", handleHashChange);
-
     window.addEventListener("scroll", handleScroll);
 
-    const observerOptions = {
-      root: null,
-      rootMargin: "-20% 0px -20% 0px", // Adjust margins to trigger earlier
-      threshold: 0.3, // Lower threshold for better detection
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && hasInitialScroll) {
-          const id = entry.target.getAttribute("id");
-          if (id) {
-            setActiveLink(id);
-          }
-        }
-      });
-    }, observerOptions);
-
-    // Observe each section with better error handling
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) {
-        observer.observe(el);
-      } else {
-        console.warn("Section not found:", id); // Debug log
-      }
-    });
+    // Initial call to set active link on page load
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("hashchange", handleHashChange);
-      sections.forEach((id) => {
-        const el = document.getElementById(id);
-        if (el) observer.unobserve(el);
-      });
     };
   }, [activeLink, hasInitialScroll]);
 
