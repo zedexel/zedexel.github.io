@@ -51,8 +51,8 @@ const Hero = () => {
                 <span
                   className={`inline-block aqua-glow transition-all duration-500 ease-in-out ${
                     isAnimating
-                      ? "opacity-0 transform translate-y-2 scale-95"
-                      : "opacity-100 transform translate-y-0 scale-100"
+                      ? "opacity-0 transform translate-y-2"
+                      : "opacity-100 transform translate-y-0"
                   }`}
                   style={{
                     textShadow: isAnimating
