@@ -30,38 +30,42 @@ const Hero = () => {
       </div>
       
       <div className="relative z-10 container mx-auto max-w-5xl px-6">
-        <div className="mb-8">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight text-dark-50">
-            <span className="inline-block min-w-[280px]">
-                        <span
-            className={`inline-block aqua-glow transition-all duration-500 ease-in-out ${
-              isAnimating
-                ? "opacity-0 transform translate-y-2 scale-95"
-                : "opacity-100 transform translate-y-0 scale-100"
-            }`}
-          >
-            {words[currentWordIndex]}
-          </span>
-            </span>{" "}
-            your business
+        <div className="mb-6 md:mb-8">
+          <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight tracking-tight text-dark-50">
+            <div className="block md:inline">
+              <span className="inline-block min-w-[200px] md:min-w-[280px]">
+                <span
+                  className={`inline-block aqua-glow transition-all duration-500 ease-in-out ${
+                    isAnimating
+                      ? "opacity-0 transform translate-y-2 scale-95"
+                      : "opacity-100 transform translate-y-0 scale-100"
+                  }`}
+                >
+                  {words[currentWordIndex]}
+                </span>
+              </span>
+            </div>
+            <div className="block md:inline">
+              {" "}your business
+            </div>
           </h1>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-dark-100 mb-4">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-dark-100 mb-3 md:mb-4">
             with Zedexel
           </h2>
         </div>
         
-        <p className="text-lg md:text-xl lg:text-2xl text-dark-300 mb-12 leading-relaxed font-light max-w-3xl mx-auto">
+        <p className="text-base md:text-lg lg:text-xl text-dark-300 mb-8 md:mb-12 leading-relaxed font-light max-w-3xl mx-auto px-4">
           We help businesses optimize and scale their operations with custom software solutions
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <a href="#services">
-            <button className="aqua-button px-8 py-4 text-lg">
+        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center px-4">
+          <a href="#services" className="w-full sm:w-auto">
+            <button className="aqua-button px-6 md:px-8 py-3 md:py-4 text-base md:text-lg w-full sm:w-auto">
               Explore Services
             </button>
           </a>
-          <a href="#contact">
-            <button className="aqua-border bg-transparent text-dark-100 hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:bg-white/5 aqua-border-hover">
+          <a href="#contact" className="w-full sm:w-auto">
+            <button className="aqua-border bg-transparent text-dark-100 hover:text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold text-base md:text-lg transition-all duration-300 transform hover:scale-105 hover:bg-white/5 aqua-border-hover w-full sm:w-auto">
               Get Started
             </button>
           </a>
