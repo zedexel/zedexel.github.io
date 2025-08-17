@@ -39,7 +39,7 @@ const Hero = () => {
       
       <div className="relative z-10 container mx-auto max-w-5xl px-6">
         <div className="mb-6 md:mb-8">
-          <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight tracking-tight text-dark-50">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight tracking-tight text-dark-50">
             <div className="block md:inline">
               <span className="inline-block min-w-[200px] md:min-w-[280px]">
                 <span
@@ -57,7 +57,7 @@ const Hero = () => {
               {" "}your business
             </div>
           </h1>
-          <h2 className="text-xl md:text-3xl lg:text-5xl font-bold text-dark-100 mb-3 md:mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-dark-100 mb-3 md:mb-4">
             with Zedexel
           </h2>
         </div>

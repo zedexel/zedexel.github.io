@@ -106,7 +106,7 @@ const Navbar = () => {
   }, [activeLink]);
 
   const getLinkStyles = (link: string) => {
-    const base = "cursor-pointer font-semibold transition-all duration-300";
+    const base = "cursor-pointer font-semibold transition-all duration-300 text-sm md:text-base";
     const scrolled = isScrolled ? "text-white" : "text-white";
     const active =
       activeLink === link ? "text-aqua-400" : "text-white/70 hover:text-aqua-400";
@@ -116,20 +116,20 @@ const Navbar = () => {
   const getNavStyles = () => {
     return `fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
       isScrolled
-        ? "py-3 glass-effect backdrop-blur-md"
-        : "py-4 bg-transparent"
+        ? "py-2 md:py-3 glass-effect backdrop-blur-md"
+        : "py-3 md:py-4 bg-transparent"
     }`;
   };
 
   const getWhatsappButtonStyles = () => {
-    return `flex items-center justify-center overflow-hidden rounded-xl h-10 px-4 text-xs sm:text-sm
+    return `flex items-center justify-center overflow-hidden rounded-xl h-8 md:h-10 px-3 md:px-4 text-xs md:text-sm
       font-bold leading-normal transition-all duration-300 hover:scale-105 ${
         isScrolled ? "bg-aqua-600 text-white hover:bg-aqua-700" : "bg-aqua-600 text-white hover:bg-aqua-700"
       }`;
   };
 
   const getLogoStyles = () => {
-    return `h-4 w-auto ${isScrolled ? "fill-white" : "fill-white"}`;
+    return `h-3 md:h-4 w-auto ${isScrolled ? "fill-white" : "fill-white"}`;
   };
 
   const handleLinkClick = (section: string) => {
@@ -152,11 +152,11 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center px-4">
         <a href="#home" className="flex items-center space-x-2">
           <Logo className={getLogoStyles()} />
-          <h1 className="text-xl font-bold font-logo">Zedexel</h1>
+          <h1 className="text-lg md:text-xl font-bold font-logo">Zedexel</h1>
         </a>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-10">
+        <ul className="hidden md:flex space-x-8 lg:space-x-10">
           {sections.map((section) => (
             <li key={section}>
               <a
@@ -179,7 +179,7 @@ const Navbar = () => {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           <svg
-            className="w-6 h-6 text-dark-100"
+            className="w-5 md:w-6 h-5 md:h-6 text-dark-100"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -213,9 +213,9 @@ const Navbar = () => {
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
               alt="WhatsApp"
-              className="w-4 h-4 mr-2 sm:w-5 sm:h-5"
+              className="w-3 md:w-4 lg:w-5 h-3 md:h-4 lg:h-5 mr-2"
             />
-            <span>Get In Touch</span>
+            <span className="text-xs md:text-sm">Get In Touch</span>
           </button>
         </a>
       </div>
@@ -254,9 +254,9 @@ const Navbar = () => {
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
                   alt="WhatsApp"
-                  className="w-4 h-4 mr-2"
+                  className="w-3 md:w-4 h-3 md:h-4 mr-2"
                 />
-                <span>Get In Touch</span>
+                <span className="text-xs md:text-sm">Get In Touch</span>
               </button>
             </a>
           </li>

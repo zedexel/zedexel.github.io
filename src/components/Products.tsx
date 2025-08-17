@@ -70,36 +70,36 @@ const Products: React.FC = () => {
   ];
 
   return (
-    <section id="products" className="py-24 bg-dark-800/30 relative overflow-hidden">
+    <section id="products" className="py-12 md:py-24 bg-dark-800/30 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/3 right-1/3 w-96 h-96 geometric-pattern rounded-full opacity-15"></div>
+        <div className="absolute top-20 right-20 w-32 md:w-64 h-32 md:h-64 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-32 md:w-64 h-32 md:h-64 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 right-1/3 w-48 md:w-96 h-48 md:h-96 geometric-pattern rounded-full opacity-15"></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold text-dark-50 mb-6">
+        <div className="text-center mb-12 md:mb-20">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-dark-50 mb-4 md:mb-6">
             Our Products
           </h2>
-          <p className="text-dark-300 max-w-3xl mx-auto text-lg">
+          <p className="text-dark-300 max-w-3xl mx-auto text-base md:text-lg px-4">
             Discover our innovative solutions designed to enhance your business
             operations
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-12 mb-20">
+        <div className="grid grid-cols-1 gap-8 md:gap-12 mb-12 md:mb-20">
           {/* ZedChat Product */}
           <ProductCard
             title="ZedChat"
             description="An AI chatbot customized to your business use case and capture leads from website visitors"
           >
-            <div className="mt-8">
-              <h4 className="text-2xl font-semibold text-dark-50 mb-8 text-center">
+            <div className="mt-6 md:mt-8">
+              <h4 className="text-xl md:text-2xl font-semibold text-dark-50 mb-6 md:mb-8 text-center">
                 Pricing Plans
               </h4>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
                 {zedchatPricingPlans.map((plan, index) => (
                   <PricingCard
                     key={index}
