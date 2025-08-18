@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const words = [
@@ -43,6 +44,40 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 container mx-auto max-w-5xl px-6">
+        {/* ZedChat Ad Banner */}
+        <div className="mb-8 md:mb-12">
+                     <Link to="/zedchat" className="block w-fit mx-auto">
+            <div className="bg-gradient-to-r from-aqua-500/15 to-aqua-400/15 border border-aqua-400/25 rounded-xl p-3 backdrop-blur-sm hover:bg-gradient-to-r hover:from-aqua-500/25 hover:to-aqua-400/25 transition-all duration-300 transform hover:scale-102 cursor-pointer group">
+              <div className="flex items-center justify-center gap-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 flex items-center justify-center">
+                    <div className="text-xl aqua-glow" style={{
+                      background: 'linear-gradient(135deg, #14b8a6, #06b6d4)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      filter: 'drop-shadow(0 0 8px rgba(20, 184, 166, 0.6))'
+                    }}>🤖</div>
+                  </div>
+                  <span className="text-base font-semibold aqua-glow group-hover:text-aqua-100 transition-colors">
+                    ZedChat
+                  </span>
+                  <span className="bg-aqua-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+                    NEW
+                  </span>
+                </div>
+                <span className="text-sm text-aqua-300 hidden sm:inline">•</span>
+                <span className="text-sm text-white group-hover:text-gray-100 transition-colors hidden sm:inline">
+                  AI Customer Support
+                </span>
+                <svg className="w-4 h-4 text-aqua-400 group-hover:text-aqua-300 transform group-hover:translate-x-1 transition-all" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </div>
+            </div>
+          </Link>
+        </div>
+
         <div className="mb-6 md:mb-8">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight tracking-tight text-dark-50">
             <div className="block md:inline">
