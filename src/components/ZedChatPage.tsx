@@ -33,9 +33,9 @@ const ZedChatPage: React.FC = () => {
   const zedchatPricingPlans = [
     {
       title: "Starter",
-      price: "50 AED",
+      price: "49 AED",
       features: [
-        { text: "500 conversations" },
+        { text: "300 conversations" },
         { text: "Lead capture" },
         { text: "Conversation summary" },
         { text: "Basic customization" },
@@ -43,9 +43,9 @@ const ZedChatPage: React.FC = () => {
     },
     {
       title: "Grow",
-      price: "100 AED",
+      price: "129 AED",
       features: [
-        { text: "1000 conversations" },
+        { text: "1500 conversations" },
         { text: "Lead capture" },
         { text: "Conversation summary" },
         { text: "Basic customization" },
@@ -95,8 +95,8 @@ const ZedChatPage: React.FC = () => {
             <p className="text-xl md:text-2xl text-dark-200 mb-6 leading-relaxed max-w-4xl mx-auto">
               AI-powered customer support agent working{" "}
               <span className="font-semibold text-aqua-400">24/7</span>{" "}
-              on your website. Captures leads, answers questions, and
-              summarizes conversations directly in your inbox
+              on your website<br/>
+              Captures leads, answers questions and summarizes conversations directly in your inbox
             </p>
 
             {/* Key Features */}
@@ -155,52 +155,70 @@ const ZedChatPage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Feature Cards */}
-            <div className="elevated-card p-6 text-center">
-              <div className="text-4xl mb-4">⚡</div>
-              <h3 className="text-xl font-bold text-dark-50 mb-3">Instant Response</h3>
-              <p className="text-dark-300 leading-relaxed">
-                Respond to customer queries immediately, 24/7, without any delays.
-              </p>
+            <div className="elevated-card p-6 text-center hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+              <div className="absolute inset-0 dot-pattern opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
+              <div className="relative z-10">
+                <div className="text-4xl mb-4 group-hover:text-aqua-400 transition-colors duration-300">⚡</div>
+                <h3 className="text-xl font-bold text-dark-50 mb-3 group-hover:aqua-glow transition-all duration-300">Instant Response</h3>
+                <p className="text-dark-300 leading-relaxed">
+                  Respond to customer queries immediately, 24/7, without any delays.
+                </p>
+              </div>
             </div>
 
-            <div className="elevated-card p-6 text-center">
-              <div className="text-4xl mb-4">📧</div>
-              <h3 className="text-xl font-bold text-dark-50 mb-3">Smart Lead Capture</h3>
-              <p className="text-dark-300 leading-relaxed">
-                Automatically collect visitor contact information and qualify leads.
-              </p>
+            <div className="elevated-card p-6 text-center hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+              <div className="absolute inset-0 dot-pattern opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
+              <div className="relative z-10">
+                <div className="text-4xl mb-4 group-hover:text-aqua-400 transition-colors duration-300">📧</div>
+                <h3 className="text-xl font-bold text-dark-50 mb-3 group-hover:aqua-glow transition-all duration-300">Smart Lead Capture</h3>
+                <p className="text-dark-300 leading-relaxed">
+                  Automatically collect visitor contact information and qualify leads.
+                </p>
+              </div>
             </div>
 
-            <div className="elevated-card p-6 text-center">
-              <div className="text-4xl mb-4">📊</div>
-              <h3 className="text-xl font-bold text-dark-50 mb-3">Conversation Insights</h3>
-              <p className="text-dark-300 leading-relaxed">
-                Get detailed summaries of all conversations delivered to your inbox.
-              </p>
+            <div className="elevated-card p-6 text-center hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+              <div className="absolute inset-0 dot-pattern opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
+              <div className="relative z-10">
+                <div className="text-4xl mb-4 group-hover:text-aqua-400 transition-colors duration-300">📊</div>
+                <h3 className="text-xl font-bold text-dark-50 mb-3 group-hover:aqua-glow transition-all duration-300">Conversation Insights</h3>
+                <p className="text-dark-300 leading-relaxed">
+                  Get detailed summaries of all conversations delivered to your inbox.
+                </p>
+              </div>
             </div>
 
-            <div className="elevated-card p-6 text-center">
-              <div className="text-4xl mb-4">🎨</div>
-              <h3 className="text-xl font-bold text-dark-50 mb-3">Fully Customizable</h3>
-              <p className="text-dark-300 leading-relaxed">
-                Match your brand colors and customize responses to fit your business.
-              </p>
+            <div className="elevated-card p-6 text-center hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+              <div className="absolute inset-0 dot-pattern opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
+              <div className="relative z-10">
+                <div className="text-4xl mb-4 group-hover:text-aqua-400 transition-colors duration-300">🎨</div>
+                <h3 className="text-xl font-bold text-dark-50 mb-3 group-hover:aqua-glow transition-all duration-300">Fully Customizable</h3>
+                <p className="text-dark-300 leading-relaxed">
+                  Match your brand colors and customize responses to fit your business.
+                </p>
+              </div>
             </div>
 
-            <div className="elevated-card p-6 text-center">
-              <div className="text-4xl mb-4">🔒</div>
-              <h3 className="text-xl font-bold text-dark-50 mb-3">Secure & Private</h3>
-              <p className="text-dark-300 leading-relaxed">
-                Enterprise-grade security ensures your customer data stays protected.
-              </p>
+            <div className="elevated-card p-6 text-center hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+              <div className="absolute inset-0 dot-pattern opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
+              <div className="relative z-10">
+                <div className="text-4xl mb-4 group-hover:text-aqua-400 transition-colors duration-300">🔒</div>
+                <h3 className="text-xl font-bold text-dark-50 mb-3 group-hover:aqua-glow transition-all duration-300">Secure & Private</h3>
+                <p className="text-dark-300 leading-relaxed">
+                  Enterprise-grade security ensures your customer data stays protected.
+                </p>
+              </div>
             </div>
 
-            <div className="elevated-card p-6 text-center">
-              <div className="text-4xl mb-4">📱</div>
-              <h3 className="text-xl font-bold text-dark-50 mb-3">Mobile Optimized</h3>
-              <p className="text-dark-300 leading-relaxed">
-                Works perfectly on all devices, providing seamless mobile experience.
-              </p>
+            <div className="elevated-card p-6 text-center hover:scale-105 transition-all duration-300 group relative overflow-hidden">
+              <div className="absolute inset-0 dot-pattern opacity-5 group-hover:opacity-10 transition-opacity duration-300"></div>
+              <div className="relative z-10">
+                <div className="text-4xl mb-4 group-hover:text-aqua-400 transition-colors duration-300">📱</div>
+                <h3 className="text-xl font-bold text-dark-50 mb-3 group-hover:aqua-glow transition-all duration-300">Mobile Optimized</h3>
+                <p className="text-dark-300 leading-relaxed">
+                  Works perfectly on all devices, providing seamless mobile experience.
+                </p>
+              </div>
             </div>
           </div>
         </div>
