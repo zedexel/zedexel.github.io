@@ -22,15 +22,23 @@ const ProductCard: React.FC<ProductCardProps> = ({
   if (variant === "minimal") {
     return (
       <div className="relative group">
-        {/* Background glow effect */}
-        <div className={`absolute -inset-1 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500 ${
+        {/* Border glow effect */}
+        <div className={`absolute -inset-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 ${
           title === "MailZed" 
-            ? "bg-gradient-to-r from-orange-500/20 via-orange-400/30 to-orange-500/20" 
-            : "bg-gradient-to-r from-aqua-500/20 via-aqua-400/30 to-aqua-500/20"
+            ? "border-2 border-orange-400/60 shadow-[0_0_40px_8px_rgba(251,146,60,0.25),0_0_80px_16px_rgba(251,146,60,0.15)]" 
+            : "border-2 border-aqua-500/60 shadow-[0_0_40px_8px_rgba(20,184,166,0.25),0_0_80px_16px_rgba(20,184,166,0.15)]"
         }`}></div>
 
         {/* Main product card */}
-        <div className="relative aqua-card p-8 md:p-10 transition-all duration-300 hover:shadow-2xl h-full flex flex-col">
+        <div className={`relative p-8 md:p-10 transition-all duration-300 hover:shadow-2xl h-full flex flex-col bg-dark-900/40 backdrop-blur-md rounded-2xl shadow-2xl ${
+          title === "MailZed" 
+            ? "border border-orange-500/20" 
+            : "border border-aqua-500/20"
+        }`} style={{
+          boxShadow: title === "MailZed" 
+            ? "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(251, 146, 60, 0.1)"
+            : "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(6, 182, 212, 0.1)"
+        }}>
           {/* Badge */}
           {(isBeta || isComingSoon) && (
             <div className="absolute -top-2 -right-2">
