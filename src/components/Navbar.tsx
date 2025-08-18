@@ -13,7 +13,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hasInitialScroll, setHasInitialScroll] = useState(false);
   const [isProductsHovered, setIsProductsHovered] = useState(false);
-  const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
+
 
   useEffect(() => {
     // Handle direct hash navigation only on initial load
@@ -325,94 +325,16 @@ const Navbar = () => {
         <ul className="px-4 py-2">
           {sections.map((section) => (
             <li key={section} className="py-2">
-              {section === 'products' ? (
-                <div>
-                  <button
-                    className={`flex items-center justify-between w-full ${getLinkStyles(section)}`}
-                    onClick={() => {
-                      setIsMobileProductsOpen(!isMobileProductsOpen);
-                      if (!isMobileProductsOpen) {
-                        handleLinkClick(section);
-                      }
-                    }}
-                  >
-                    <span>{section.charAt(0).toUpperCase() + section.slice(1)}</span>
-                    <svg 
-                      className={`w-4 h-4 transition-transform duration-300 ${
-                        isMobileProductsOpen ? 'rotate-180' : 'rotate-0'
-                      }`}
-                      fill="currentColor" 
-                      viewBox="0 0 20 20"
-                    >
-                      <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </button>
-                  
-                  {/* Mobile Products Submenu */}
-                  <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    isMobileProductsOpen ? 'max-h-screen opacity-100 mt-2' : 'max-h-0 opacity-0'
-                  }`}>
-                    <div className="pl-4">
-                      {/* Enhanced mobile popup container */}
-                      <div className="bg-dark-800/80 backdrop-blur-lg border border-white/10 rounded-xl overflow-hidden shadow-xl">
-                        {/* Gradient border effect */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-aqua-500/10 via-transparent to-orange-500/10 rounded-xl"></div>
-                        
-                        {/* Mobile header */}
-                        <div className="relative border-b border-white/10 p-3 bg-gradient-to-r from-dark-700/50 to-dark-600/50">
-                          <p className="text-xs text-dark-200 text-center font-medium">AI-powered solutions for your business</p>
-                        </div>
-                        
-                        {/* Mobile products */}
-                        <div className="relative p-4 space-y-3">
-                          {/* Background pattern */}
-                          <div className="absolute inset-0 opacity-5">
-                            <div className="absolute inset-0 bg-gradient-to-br from-aqua-500/20 via-transparent to-orange-500/20"></div>
-                          </div>
-                          
-                          <div className="relative space-y-3">
-                            <ProductPopupCard
-                              title="ZedChat"
-                              icon="🤖"
-                              description="AI-powered customer support agent working 24/7 on your website"
-                              theme="aqua"
-                              status="beta"
-                              variant="mobile"
-                              onClick={() => {
-                                handleRouteClick('/zedchat');
-                                setIsMobileMenuOpen(false);
-                                setIsMobileProductsOpen(false);
-                              }}
-                            />
-                            
-                            <ProductPopupCard
-                              title="MailZed"
-                              icon="📧"
-                              description="Automated email campaign software for bulk emails and progress tracking"
-                              theme="orange"
-                              status="building"
-                              variant="mobile"
-                            />
-                          </div>
-                        </div>
-                        
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <a
-                  href={`#${section}`}
-                  className={`block ${getLinkStyles(section)}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick(section);
-                  }}
-                >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
-                </a>
-              )}
+              <a
+                href={`#${section}`}
+                className={`block ${getLinkStyles(section)}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick(section);
+                }}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </a>
             </li>
           ))}
           <li className="py-2">
