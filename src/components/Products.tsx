@@ -1,73 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import ProductCard from "./ProductCard";
-import PricingCard from "./PricingCard";
-import UpcomingFeatures from "./UpcomingFeatures";
 import Clients from "./Clients";
 
 const Products: React.FC = () => {
-  const upcomingFeatures = [
-    {
-      title: "Multi-Channel Support",
-      description:
-        "Integrate with WhatsApp, Instagram, and Facebook to provide seamless customer support across all platforms.",
-      eta: "Q3 2025",
-    },
-    {
-      title: "Multi-Language Support",
-      description:
-        "Communicate with your customers in Hindi, Malayalam, and Arabic, expanding your reach to diverse markets.",
-      eta: "Q3 2025",
-    },
-    {
-      title: "Advanced Analytics",
-      description:
-        "Get detailed insights into customer interactions, response times, and conversion rates.",
-      eta: "Q4 2025",
-    },
-    {
-      title: "Custom AI Training",
-      description:
-        "Train the AI with your specific business data for more accurate and personalized responses.",
-      eta: "Q4 2025",
-    },
-  ];
-  const zedchatPricingPlans = [
-    {
-      title: "Starter",
-      price: "50 AED",
-      features: [
-        { text: "500 conversations" },
-        { text: "Lead capture" },
-        { text: "Conversation summary" },
-        { text: "Basic customization" },
-      ],
-    },
-    {
-      title: "Grow",
-      price: "100 AED",
-      features: [
-        { text: "1000 conversations" },
-        { text: "Lead capture" },
-        { text: "Conversation summary" },
-        { text: "Basic customization" },
-      ],
-    },
-    {
-      title: "Enterprise",
-      price: "Custom",
-      features: [
-        { text: "Unlimited conversations" },
-        { text: "Advanced lead capture" },
-        { text: "Full customization" },
-        { text: "Priority support" },
-      ],
-      isEnterprise: true,
-      contactInfo: {
-        phone: "+971 509156095",
-        email: "info@zedexel.com",
-      },
-    },
-  ];
+  const navigate = useNavigate();
+  
+  const handleZedChatLearnMore = () => {
+    navigate('/zedchat');
+  };
+
+  const handleMailZedLearnMore = () => {
+    // Placeholder for MailZed action
+    console.log('MailZed learn more clicked');
+  };
 
   return (
     <section id="products" className="py-12 md:py-24 bg-dark-800/30 relative overflow-hidden">
@@ -75,7 +21,6 @@ const Products: React.FC = () => {
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 right-20 w-32 md:w-64 h-32 md:h-64 bg-white/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-20 w-32 md:w-64 h-32 md:h-64 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/3 right-1/3 w-48 md:w-96 h-48 md:h-96 geometric-pattern rounded-full opacity-15"></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -89,38 +34,24 @@ const Products: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:gap-12 mb-12 md:mb-20">
+        {/* Horizontal Product Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-20 max-w-5xl mx-auto">
           {/* ZedChat Product */}
           <ProductCard
             title="ZedChat"
-            description="AI powered customer support agent 24x7 live on your website, ready to capture leads and summarise conversations directly in your inbox 📥"
+            description="AI-powered customer support agent working 24/7 on your website. Captures leads, answers questions, and summarizes conversations directly in your inbox."
             isBeta={true}
-          >
-            <div className="mt-6 md:mt-8">
-              <h4 className="text-xl md:text-2xl font-semibold text-dark-50 mb-6 md:mb-8 text-center">
-                Pricing Plans
-              </h4>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
-                {zedchatPricingPlans.map((plan, index) => (
-                  <PricingCard
-                    key={index}
-                    title={plan.title}
-                    price={plan.price}
-                    features={plan.features}
-                    isEnterprise={plan.isEnterprise}
-                    contactInfo={plan.contactInfo}
-                  />
-                ))}
-              </div>
-              <UpcomingFeatures features={upcomingFeatures} />
-            </div>
-          </ProductCard>
+            variant="minimal"
+            onLearnMore={handleZedChatLearnMore}
+          />
 
-          {/* Mailist Product */}
+          {/* MailZed Product */}
           <ProductCard
             title="MailZed"
-            description="An automated email campaign software that sends bulk emails and tracks progress. Perfect for digital marketing companies running email campaigns across various industries."
+            description="Automated email campaign software that sends bulk emails and tracks progress. Perfect for digital marketing companies running campaigns across industries."
             isComingSoon={true}
+            variant="minimal"
+            onLearnMore={handleMailZedLearnMore}
           />
         </div>
         

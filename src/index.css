@@ -74,6 +74,13 @@
     background-clip: text;
   }
   
+  .orange-glow {
+    background: linear-gradient(135deg, #f97316 0%, #fb923c 50%, #fdba74 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
   .aqua-border {
     border: 1px solid rgba(6, 182, 212, 0.2);
   }
