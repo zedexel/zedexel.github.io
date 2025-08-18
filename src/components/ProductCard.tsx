@@ -128,7 +128,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                         Starting at{" "}
                         <span className="aqua-glow">49 AED/month</span>
                       </div>
-                      <div className="text-sm md:text-base text-dark-300">500 conversations included</div>
+                      <div className="text-sm md:text-base text-dark-300">300 conversations included</div>
                     </div>
                   )}
                   

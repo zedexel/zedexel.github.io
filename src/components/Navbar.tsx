@@ -16,6 +16,12 @@ const Navbar = () => {
 
 
   useEffect(() => {
+    // Check if we're on ZedChat page and highlight products
+    if (location.pathname === '/zedchat') {
+      setActiveLink('products');
+      return;
+    }
+
     // Handle direct hash navigation only on initial load
     const handleHashScroll = () => {
       const hash = window.location.hash;
@@ -92,7 +98,7 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("hashchange", handleHashChange);
     };
-  }, [activeLink, hasInitialScroll]);
+  }, [activeLink, hasInitialScroll, location.pathname]);
 
   const getLinkStyles = (link: string, isCurrentRoute: boolean = false) => {
     const base = "cursor-pointer font-semibold transition-all duration-300 text-sm md:text-base";
