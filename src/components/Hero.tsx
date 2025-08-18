@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const Hero = () => {
-  const words = [
-    "Modernize",
-    "Optimize",
-    "Transform",
-    "Accelerate",
-    "Streamline",
-  ];
+  const words = ["Modernize", "Optimize", "Transform"];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 

@@ -511,7 +511,7 @@ const ChatBot: React.FC = () => {
                           <div className="flex gap-2 items-center">
                             <input
                               type="email"
-                              placeholder="your.email@example.com"
+                              placeholder="Email"
                               value={emailInputs[index] || ""}
                               onChange={(e) =>
                                 handleEmailChange(index, e.target.value)
@@ -527,7 +527,7 @@ const ChatBot: React.FC = () => {
                           <div className="flex gap-2 items-center">
                             <input
                               type="tel"
-                              placeholder="Enter your WhatsApp number"
+                              placeholder="WhatsApp"
                               value={whatsappInputs[index] || ""}
                               onChange={(e) =>
                                 handleWhatsappChange(index, e.target.value)
@@ -539,9 +539,6 @@ const ChatBot: React.FC = () => {
                               }}
                               className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
                             />
-                            {/* <span className="text-xs text-gray-500 w-12">
-                              WhatsApp
-                            </span> */}
                           </div>
                           <div className="flex justify-end">
                             <button
