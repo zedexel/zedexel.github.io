@@ -29,7 +29,6 @@ const Contact = () => {
                     {(FaMapMarkerAlt as any)({ size: 24, className: "md:text-3xl text-aqua-400" })}
                   </div>
                   <div className="text-center">
-                    <h3 className="text-lg md:text-xl font-semibold text-dark-50 mb-2 md:mb-3">Address</h3>
                     <p className="text-dark-300 text-sm md:text-base">
                       Office B44-015, Block B, SRTIP, UAE
                     </p>
@@ -45,7 +44,6 @@ const Contact = () => {
                     {(FaEnvelope as any)({ size: 24, className: "md:text-3xl text-aqua-400" })}
                   </div>
                   <div className="text-center">
-                    <h3 className="text-lg md:text-xl font-semibold text-dark-50 mb-2 md:mb-3">Email</h3>
                     <p className="text-dark-300 text-sm md:text-base">info@zedexel.com</p>
                   </div>
                 </div>
@@ -59,7 +57,6 @@ const Contact = () => {
                     {(FaPhoneAlt as any)({ size: 24, className: "md:text-3xl text-aqua-400" })}
                   </div>
                   <div className="text-center">
-                    <h3 className="text-lg md:text-xl font-semibold text-dark-50 mb-2 md:mb-3">Phone</h3>
                     <p className="text-dark-300 text-sm md:text-base">+971 58 596 6095</p>
                   </div>
                 </div>

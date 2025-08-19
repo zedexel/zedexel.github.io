@@ -1,15 +1,27 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { ReactComponent as Logo } from "../logo.svg";
+import ProductPopupCard from "./ProductPopupCard";
 
 const sections = ["home", "services", "products", "team", "contact"];
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hasInitialScroll, setHasInitialScroll] = useState(false);
+  const [isProductsHovered, setIsProductsHovered] = useState(false);
+
 
   useEffect(() => {
+    // Check if we're on ZedChat page and highlight products
+    if (location.pathname === '/zedchat') {
+      setActiveLink('products');
+      return;
+    }
+
     // Handle direct hash navigation only on initial load
     const handleHashScroll = () => {
       const hash = window.location.hash;
@@ -86,13 +98,13 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("hashchange", handleHashChange);
     };
-  }, [activeLink, hasInitialScroll]);
+  }, [activeLink, hasInitialScroll, location.pathname]);
 
-  const getLinkStyles = (link: string) => {
+  const getLinkStyles = (link: string, isCurrentRoute: boolean = false) => {
     const base = "cursor-pointer font-semibold transition-all duration-300 text-sm md:text-base";
     const scrolled = isScrolled ? "text-white" : "text-white";
     const active =
-      activeLink === link ? "text-aqua-400" : "text-white/70 hover:text-aqua-400";
+      activeLink === link || isCurrentRoute ? "text-aqua-400" : "text-white/70 hover:text-aqua-400";
     return `${base} ${scrolled} ${active}`;
   };
 
@@ -119,30 +131,62 @@ const Navbar = () => {
     setActiveLink(section);
     setIsMobileMenuOpen(false);
     setHasInitialScroll(true); // Mark that user has manually navigated
-    const element = document.getElementById(section);
-    if (element) {
-      const navHeight = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+    
+    // If we're not on the home page, navigate to home first
+    if (location.pathname !== '/') {
+      navigate('/', { replace: true });
+      // Small delay to ensure navigation completes before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(section);
+        if (element) {
+          const navHeight = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(section);
+      if (element) {
+        const navHeight = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
     }
+  };
+
+  const handleRouteClick = (path: string) => {
+    setIsMobileMenuOpen(false);
+    navigate(path);
   };
 
   return (
     <nav className={getNavStyles()}>
       <div className="container mx-auto flex justify-between items-center px-4">
-        <a href="#home" className="flex items-center space-x-2">
+        <button 
+          onClick={() => navigate('/')}
+          className="flex items-center space-x-2"
+        >
           <Logo className={getLogoStyles()} />
           <h1 className="text-lg md:text-xl font-bold font-logo">Zedexel</h1>
-        </a>
+        </button>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-8 lg:space-x-10">
           {sections.map((section) => (
-            <li key={section}>
+            <li 
+              key={section}
+              className={section === 'products' ? 'relative' : ''}
+              onMouseEnter={() => section === 'products' && setIsProductsHovered(true)}
+              onMouseLeave={() => section === 'products' && setIsProductsHovered(false)}
+            >
               <a
                 href={`#${section}`}
                 className={getLinkStyles(section)}
@@ -152,7 +196,77 @@ const Navbar = () => {
                 }}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
+                {section === 'products' && (
+                  <svg 
+                    className="inline-block ml-1 w-3 h-3 transition-transform duration-300"
+                    style={{ transform: isProductsHovered ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                    fill="currentColor" 
+                    viewBox="0 0 20 20"
+                  >
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                )}
               </a>
+              
+              {/* Products Dropdown */}
+              {section === 'products' && (
+                <div 
+                  className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-3 transition-all duration-300 ease-in-out z-50 ${
+                    isProductsHovered ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+                  }`}
+                >
+                  {/* Arrow pointing up */}
+                  <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
+                    <div className="w-4 h-4 bg-dark-900/95 border-l border-t border-white/20 transform rotate-45 backdrop-blur-xl"></div>
+                  </div>
+                  
+                  {/* Main popup container with enhanced styling */}
+                  <div className="relative bg-dark-900/95 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden">
+                    {/* Gradient border effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-aqua-500/10 via-transparent to-orange-500/10 rounded-2xl"></div>
+                    
+                    {/* Header section */}
+                    <div className="relative border-b border-white/10 p-4 bg-gradient-to-r from-dark-800/50 to-dark-700/50">
+                      <p className="text-sm text-dark-200 text-center font-medium">AI-powered solutions for your business</p>
+                    </div>
+                    
+                    {/* Products grid */}
+                    <div className="relative p-6">
+                      {/* Background pattern */}
+                      <div className="absolute inset-0 opacity-5">
+                        <div className="absolute inset-0 bg-gradient-to-br from-aqua-500/20 via-transparent to-orange-500/20"></div>
+                        <div className="w-full h-full" style={{
+                          backgroundImage: `radial-gradient(circle at 25% 25%, rgba(6, 182, 212, 0.1) 0%, transparent 50%), 
+                                           radial-gradient(circle at 75% 75%, rgba(251, 146, 60, 0.1) 0%, transparent 50%)`
+                        }}></div>
+                      </div>
+                      
+                      <div className="relative flex gap-4">
+                        <ProductPopupCard
+                          title="ZedChat"
+                          icon="🤖"
+                          description="AI-powered customer support agent working 24/7 on your website"
+                          theme="aqua"
+                          status="beta"
+                          variant="desktop"
+                          onClick={() => handleRouteClick('/zedchat')}
+                        />
+                        
+                        <ProductPopupCard
+                          title="MailZed"
+                          icon="📧"
+                          description="Automated email campaign software for bulk emails and progress tracking"
+                          theme="orange"
+                          status="building"
+                          variant="desktop"
+                        />
+                      </div>
+                    </div>
+                    
+
+                  </div>
+                </div>
+              )}
             </li>
           ))}
         </ul>

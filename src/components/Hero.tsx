@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
-  const words = ["Modernize", "Optimize", "Transform"];
+  const words = [
+    "Modernize",
+    "Optimize",
+    "Transform",
+    "Streamline",
+  ];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -20,7 +26,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-[85vh] pt-20 md:pt-24 pb-12 md:pb-16 flex flex-col justify-center items-center text-center gradient-bg relative overflow-hidden"
+      className="min-h-screen flex flex-col justify-center items-center text-center gradient-bg relative overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -38,8 +44,42 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 container mx-auto max-w-5xl px-6">
-        <div className="mb-4 md:mb-6">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 leading-tight tracking-tight text-dark-50">
+        {/* ZedChat Ad Banner */}
+        <div className="mb-8 md:mb-12">
+                     <Link to="/zedchat" className="block w-fit mx-auto">
+            <div className="bg-gradient-to-r from-aqua-500/15 to-aqua-400/15 border border-aqua-400/25 rounded-xl p-3 backdrop-blur-sm hover:bg-gradient-to-r hover:from-aqua-500/25 hover:to-aqua-400/25 transition-all duration-300 transform hover:scale-102 cursor-pointer group">
+              <div className="flex items-center justify-center gap-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 flex items-center justify-center">
+                    <div className="text-xl aqua-glow" style={{
+                      background: 'linear-gradient(135deg, #14b8a6, #06b6d4)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      filter: 'drop-shadow(0 0 8px rgba(20, 184, 166, 0.6))'
+                    }}>🤖</div>
+                  </div>
+                  <span className="text-base font-semibold aqua-glow group-hover:text-aqua-100 transition-colors">
+                    ZedChat
+                  </span>
+                  <span className="bg-aqua-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+                    NEW
+                  </span>
+                </div>
+                <span className="text-sm text-aqua-300 hidden sm:inline">•</span>
+                <span className="text-sm text-white group-hover:text-gray-100 transition-colors hidden sm:inline">
+                  AI Customer Support
+                </span>
+                <svg className="w-4 h-4 text-aqua-400 group-hover:text-aqua-300 transform group-hover:translate-x-1 transition-all" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </div>
+            </div>
+          </Link>
+        </div>
+
+        <div className="mb-6 md:mb-8">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight tracking-tight text-dark-50">
             <div className="block md:inline">
               <span className="inline-block min-w-[200px] md:min-w-[280px]">
                 <span
@@ -60,122 +100,20 @@ const Hero = () => {
             </div>
             <div className="block md:inline"> your business</div>
           </h1>
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-dark-100 mb-2 md:mb-3">
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-dark-100 mb-3 md:mb-4">
             with Zedexel
           </h2>
         </div>
 
-        <p className="text-sm md:text-base lg:text-lg text-dark-300 mb-6 md:mb-8 leading-relaxed font-light max-w-2xl mx-auto px-4">
+        <p className="text-base md:text-lg lg:text-xl text-dark-300 mb-8 md:mb-12 leading-relaxed font-light max-w-2xl mx-auto px-4">
           We help businesses optimize and scale with AI-powered custom software
           solutions
         </p>
 
-        {/* ZedChat Ad Banner */}
-        <div className="mb-4 md:mb-8 px-3 sm:px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="relative group">
-              {/* Background glow effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-aqua-500/20 via-aqua-400/30 to-aqua-500/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-
-              {/* Main ad card */}
-              <div className="relative aqua-card p-4 sm:p-6 md:p-8 transform transition-all duration-300 hover:scale-[1.01] md:hover:scale-[1.02] hover:shadow-2xl">
-                {/* Beta badge */}
-                <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-aqua-500 text-white text-xs font-bold px-2 sm:px-3 py-1 rounded-full shadow-lg">
-                  BETA
-                </div>
-
-                <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-6 md:gap-8">
-                  {/* Content */}
-                  <div className="flex-1 text-center md:text-left">
-                    <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-2 sm:gap-3 mb-3">
-                      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold aqua-glow">
-                        🤖 ZedChat
-                      </h3>
-                      <span className="text-xs sm:text-sm bg-white/10 px-2 py-1 rounded-full text-dark-200">
-                        Now Live!
-                      </span>
-                    </div>
-
-                    <p className="text-dark-200 text-sm sm:text-base md:text-base leading-relaxed mb-4 max-w-md sm:max-w-none mx-auto md:mx-0">
-                      AI-powered customer support agent working{" "}
-                      <span className="font-semibold text-aqua-400">24/7</span>{" "}
-                      on your website. Captures leads, answers questions, and
-                      summarizes conversations directly in your inbox.
-                    </p>
-
-                    {/* Features */}
-                    <div className="flex flex-wrap justify-center md:justify-start gap-1.5 sm:gap-2 mb-4">
-                      <span className="text-xs sm:text-xs bg-aqua-500/20 text-aqua-300 px-2 sm:px-2.5 py-1 rounded-full border border-aqua-500/30 whitespace-nowrap">
-                        ⚡ Instant Response
-                      </span>
-                      <span className="text-xs sm:text-xs bg-aqua-500/20 text-aqua-300 px-2 sm:px-2.5 py-1 rounded-full border border-aqua-500/30 whitespace-nowrap">
-                        📧 Lead Capture
-                      </span>
-                      <span className="text-xs sm:text-xs bg-aqua-500/20 text-aqua-300 px-2 sm:px-2.5 py-1 rounded-full border border-aqua-500/30 whitespace-nowrap">
-                        📊 Summary
-                      </span>
-                    </div>
-
-                    {/* Pricing */}
-                    <div className="text-center md:text-left">
-                      <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-1 sm:gap-2">
-                        <span className="text-base sm:text-lg md:text-xl font-bold text-dark-50">
-                          Starting at{" "}
-                          <span className="aqua-glow">50 AED/month</span>
-                        </span>
-                        <span className="text-xs sm:text-sm text-dark-300">
-                          • 500 conversations
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* CTA Buttons */}
-                  <div className="flex-shrink-0 mt-3 md:mt-0">
-                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-                      {/* Try Demo Button */}
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          window.dispatchEvent(new Event("openZedChat"));
-                        }}
-                        className="aqua-button px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl whitespace-nowrap"
-                      >
-                        🚀 Try Demo
-                      </button>
-
-                      {/* View Pricing Button */}
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          document
-                            .getElementById("products")
-                            ?.scrollIntoView({ behavior: "smooth" });
-                        }}
-                        className="aqua-border bg-transparent text-aqua-400 hover:text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg font-semibold text-xs sm:text-sm transition-all duration-300 transform hover:scale-105 hover:bg-aqua-500/10 aqua-border-hover whitespace-nowrap"
-                      >
-                        💰 View Pricing
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom action text */}
-                <div className="text-center mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-white/10">
-                  <span className="text-xs sm:text-sm text-dark-300">
-                    🚀 Try our live demo or explore pricing options
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Hide below buttons during Ad Space period */}
-        {/* <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center px-4">
-          <a href="#products" className="w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center px-4">
+          <a href="#services" className="w-full sm:w-auto">
             <button className="aqua-button px-6 md:px-8 py-3 md:py-4 text-base md:text-lg w-full sm:w-auto">
-              Explore Products
+              Explore Services
             </button>
           </a>
           <a href="#contact" className="w-full sm:w-auto">
@@ -183,7 +121,7 @@ const Hero = () => {
               Get Started
             </button>
           </a>
-        </div> */}
+        </div>
       </div>
     </section>
   );
