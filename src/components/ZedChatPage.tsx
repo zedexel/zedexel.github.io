@@ -38,9 +38,9 @@ const ZedChatPage: React.FC = () => {
   const zedchatPricingPlans = [
     {
       title: "Starter",
-      price: "49 AED",
+      price: "50 AED",
       features: [
-        { text: "300 conversations" },
+        { text: "500 conversations" },
         { text: "Lead capture" },
         { text: "Conversation summary" },
         { text: "Basic customization" },
@@ -48,9 +48,9 @@ const ZedChatPage: React.FC = () => {
     },
     {
       title: "Grow",
-      price: "129 AED",
+      price: "100 AED",
       features: [
-        { text: "1500 conversations" },
+        { text: "1000 conversations" },
         { text: "Lead capture" },
         { text: "Conversation summary" },
         { text: "Basic customization" },
