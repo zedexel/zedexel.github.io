@@ -11,6 +11,7 @@ import ChatBot from "./components/ChatBot";
 import ZedChatPage from "./components/ZedChatPage";
 import SBCCustomerAppPrivacyPolicy from "./pages/legal/SBCCustomerAppPrivacyPolicy";
 import SBCStaffAppPrivacyPolicy from "./pages/legal/SBCStaffAppPrivacyPolicy";
+import NotFound from "./components/NotFound";
 
 const HomePage = () => (
   <>
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/zedchat" element={<ZedChatPage />} />
           <Route path="/legal/sbc-customer-app-privacy-policy" element={<SBCCustomerAppPrivacyPolicy />} />
           <Route path="/legal/sbc-staff-app-privacy-policy" element={<SBCStaffAppPrivacyPolicy />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
         <ChatBot />
