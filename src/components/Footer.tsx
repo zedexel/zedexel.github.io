@@ -49,8 +49,8 @@ const Footer = () => {
             </div>
           </div>
           
-          <div className="border-t border-dark-800/50 pt-6 md:pt-8">
-            <p className="text-dark-500 mb-2 text-sm md:text-base">&copy; 2025 Zedexel. All rights reserved.</p>
+          <div>
+            <p className="text-dark-500 text-sm md:text-base">&copy; 2025 Zedexel. All rights reserved.</p>
           </div>
         </div>
       </div>
